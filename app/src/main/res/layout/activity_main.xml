@@ -7,12 +7,74 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/LabelSignIn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="119dp"
+        android:layout_marginBottom="40dp"
+        android:text="Anmelden"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/LabelMailAdress1"
+        app:layout_constraintStart_toStartOf="@+id/LabelMailAdress1"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/LabelMailAdress1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="8dp"
+        android:text="E-Mailadresse:"
+        app:layout_constraintBottom_toTopOf="@+id/InputEmail1"
+        app:layout_constraintStart_toStartOf="@+id/InputEmail1"
+        app:layout_constraintTop_toBottomOf="@+id/LabelSignIn1" />
+
+    <EditText
+        android:id="@+id/InputPassword1"
+        android:layout_width="262dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="83dp"
+        android:ems="10"
+        android:hint="Geben Sie hier Ihr Passwort ein."
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSignIn1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LabelPassword1" />
+
+    <TextView
+        android:id="@+id/LabelPassword1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/InputPassword1"
+        app:layout_constraintStart_toStartOf="@+id/InputPassword1"
+        app:layout_constraintTop_toBottomOf="@+id/InputEmail1" />
+
+    <Button
+        android:id="@+id/buttonSignIn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="145dp"
+        android:text="Anmelden"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InputPassword1" />
+
+    <EditText
+        android:id="@+id/InputEmail1"
+        android:layout_width="273dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="23dp"
+        android:height="48dp"
+        android:ems="10"
+        android:hint="E-Mailadresse@beispiel.com"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/LabelPassword1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LabelMailAdress1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
