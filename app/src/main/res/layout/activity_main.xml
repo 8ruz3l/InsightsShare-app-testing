@@ -52,17 +52,6 @@
         app:layout_constraintStart_toStartOf="@+id/InputPassword1"
         app:layout_constraintTop_toBottomOf="@+id/InputEmail1" />
 
-    <Button
-        android:id="@+id/buttonSignIn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="145dp"
-        android:text="Anmelden"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputPassword1" />
-
     <EditText
         android:id="@+id/InputEmail1"
         android:layout_width="273dp"
@@ -76,5 +65,16 @@
         app:layout_constraintBottom_toTopOf="@+id/LabelPassword1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LabelMailAdress1" />
+
+    <Button
+        android:id="@+id/buttonSignIn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="145dp"
+        android:text="Anmelden"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InputPassword1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
