@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">InsightsShare</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_create_event">Create Event</string>
+    <string name="title_my_event">My Event</string>
 </resources>
