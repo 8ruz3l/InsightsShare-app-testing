@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_dashboard">
+    android:label="@string/title_create_event"
+    app:startDestination="@id/navigation_events_creation">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -12,14 +13,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.insightsshare.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_events_creation"
+        android:name="com.example.insightsshare.ui.eventsCreation.EventsCreationFragment"
+        android:label="@string/title_create_event"
+        tools:layout="@layout/fragment_events_creation" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.insightsshare.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_events_calendar"
+        android:name="com.example.insightsshare.ui.eventsCalendar.EventsCalendarFragment"
+        android:label="@string/title_my_event"
+        tools:layout="@layout/fragment_events_calendar" />
 </navigation>

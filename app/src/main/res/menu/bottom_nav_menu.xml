@@ -7,13 +7,13 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/baseline_add_circle_outline_24"
+        android:id="@+id/navigation_events_creation"
+        android:icon="@drawable/ic_baseline_add_circle_outline_24"
         android:title="@string/title_create_event" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/baseline_event_24"
+        android:id="@+id/navigation_events_calendar"
+        android:icon="@drawable/ic_baseline_event_24"
         android:title="@string/title_my_event" />
 
 </menu>

@@ -1,4 +1,4 @@
-package com.example.insightsshare.ui.dashboard;
+package com.example.insightsshare.ui.eventsCreation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,20 +12,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.insightsshare.R;
-import com.example.insightsshare.databinding.FragmentDashboardBinding;
+import com.example.insightsshare.databinding.FragmentEventsCreationBinding;
 
-public class DashboardFragment extends Fragment {
+public class EventsCreationFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
-    private FragmentDashboardBinding binding;
+    private EventsCreationViewModel dashboardViewModel;
+    private FragmentEventsCreationBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+                new ViewModelProvider(this).get(EventsCreationViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentEventsCreationBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
