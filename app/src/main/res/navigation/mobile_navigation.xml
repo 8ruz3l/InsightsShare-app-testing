@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    android:label="@string/title_create_event"
+    app:startDestination="@id/navigation_events_creation">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.insightsshare.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_events_creation"
+        android:name="com.example.insightsshare.ui.eventsCreation.EventsCreationFragment"
+        android:label="@string/title_create_event"
+        tools:layout="@layout/fragment_events_creation" />
+
+    <fragment
+        android:id="@+id/navigation_events_calendar"
+        android:name="com.example.insightsshare.ui.eventsCalendar.EventsCalendarFragment"
+        android:label="@string/title_my_event"
+        tools:layout="@layout/fragment_events_calendar" />
+</navigation>
