@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InsightsShare">
         <activity
+            android:name=".NavigationActivity"
+            android:exported="true"
+            android:label="@string/title_activity_navigation" />
+        <activity
             android:name=".EventplanningActivity5"
             android:exported="true"
             android:label="@string/title_activity_eventplanning5"

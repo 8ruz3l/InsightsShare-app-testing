@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">InsightsShare</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_create_event">Create Event</string>
+    <string name="title_my_event">My Event</string>
+
+    <string-array name="event_list">
+        <item>Event1</item>
+        <item>Event2</item>
+        <item>Event3</item>
+    </string-array>
+
+    <string-array name="event_description">
+        <item>Lorem ipsum dolor sit amet, his commodo repudiandae ne, summo noster putant duo in.</item>
+        <item>Lorem ipsum dolor sit amet, his commodo repudiandae ne, summo noster putant duo in.</item>
+        <item>Lorem ipsum dolor sit amet, his commodo repudiandae ne, summo noster putant duo in.</item>
+    </string-array>
+
     <string name="title_activity_eventplanning5">EventplanningActivity5</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
