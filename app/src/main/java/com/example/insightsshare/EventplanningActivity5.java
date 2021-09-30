@@ -57,7 +57,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 rootNode= FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app/");
-                reference= rootNode.getReference().child("Events");
+                reference= rootNode.getReference().child("Event");
 
                 //get all the values
                 String ValueEventName= eventName.getEditableText().toString();
