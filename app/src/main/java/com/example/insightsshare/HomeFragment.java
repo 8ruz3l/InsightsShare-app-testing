@@ -37,6 +37,9 @@ public class HomeFragment extends Fragment {
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        // Set fragment title in toolbar
+        getActivity().setTitle(R.string.title_home_toolbar);
+
         eventsView = view.findViewById(R.id.event_list);
         eventsView.setLayoutManager(new LinearLayoutManager(getContext()));
 

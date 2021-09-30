@@ -16,6 +16,10 @@ public class NavigationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
+        // Set up the toolbar
+        setSupportActionBar(findViewById(R.id.toolbar));
+
+        // Set up the bottom navigation menu
         BottomNavigationView bottomNav = findViewById(R.id.nav_view);
         NavController navController = Navigation.findNavController(this,
                 R.id.nav_host_fragment_activity_navigation);

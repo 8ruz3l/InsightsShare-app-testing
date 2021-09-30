@@ -11,10 +11,19 @@ import androidx.fragment.app.Fragment;
 
 public class EventsCalendarFragment extends Fragment {
 
+    public EventsCalendarFragment() {
+        // Required empty public constructor
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_events_calendar, container, false);
+        View view = inflater.inflate(R.layout.fragment_events_calendar, container, false);
+
+        // Set fragment title in toolbar
+        getActivity().setTitle(R.string.title_my_event_toolbar);
+
+        return view;
     }
 }
