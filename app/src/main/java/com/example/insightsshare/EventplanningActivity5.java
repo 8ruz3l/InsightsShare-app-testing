@@ -23,6 +23,8 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Date;
+
 //import com.example.insightsshare.databinding.ActivityEventplanning5Binding;
 
 
@@ -68,13 +70,15 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 //Switch doesn't work yet
                 //bool ValuePublish= eventPublish.getEditableText().toBool();
 
-                //Mockdata:
-                String ValueCreationDate= "21.09.2022";   //TODO:change mockdata to today
+                    //later used in ValueCreationDate
+                    Date today= new Date();
+                String ValueCreationDate= today.toString();
+
                 String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
 
                 EventItem helperclass = new EventItem(ValueEventName, ValueEventCreator, ValueCreationDate, ValuePlace, ValueDate, ValueParticipant);//, ValuePublish);
 
-                reference.child(ValueEventName).setValue(helperclass);
+                reference.child(ValueCreationDate).setValue(helperclass);
             }
         }); //End of setOnClickListener
     }
