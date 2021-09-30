@@ -1,21 +1,18 @@
 <resources>
     <string name="app_name">InsightsShare</string>
+
+    <!-- Bottom Navigation Bar -->
     <string name="title_activity_navigation">NavigationActivity</string>
     <string name="title_home">Home</string>
     <string name="title_create_event">Create Event</string>
     <string name="title_my_event">My Event</string>
 
-    <string-array name="event_list">
-        <item>Event1</item>
-        <item>Event2</item>
-        <item>Event3</item>
-    </string-array>
-
-    <string-array name="event_description">
-        <item>Lorem ipsum dolor sit amet, his commodo repudiandae ne, summo noster putant duo in.</item>
-        <item>Lorem ipsum dolor sit amet, his commodo repudiandae ne, summo noster putant duo in.</item>
-        <item>Lorem ipsum dolor sit amet, his commodo repudiandae ne, summo noster putant duo in.</item>
-    </string-array>
+    <!-- Event row -->
+    <string name="event_creator">erstellt von</string>
+    <string name="event_creation_date">am</string>
+    <string name="event_place">Ort:</string>
+    <string name="event_date">Datum:</string>
+    <string name="event_participant">Teilnehmer:</string>
 
     <string name="title_activity_eventplanning5">EventplanningActivity5</string>
     <!-- Strings used for fragments for navigation -->
@@ -26,4 +23,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_test">TestActivity</string>
 </resources>
