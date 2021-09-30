@@ -13,58 +13,63 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 //import com.example.insightsshare.databinding.ActivityEventplanning5Binding;
 
 
 public class EventplanningActivity5 extends AppCompatActivity {
 
-    ListView listView;
-    int images[]= {R.mipmap.ic_launcher_round,R.mipmap.ic_launcher};
-    String mText[]= {"Name2", "Name1"};
+    //Variables for transfering Eventdata toDB
+    EditText EventName, Date, Time, Location, MaxParticipants;
+    Switch Publish;
+    Button ButtonSave;
+
+    //connection with DB:
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventplanning5);
 
-        listView = findViewById(R.id.ListOfParticipants5);
-        MyAdapter adapter= new MyAdapter(this, mText, images);
-        listView.setAdapter(adapter);
-    }
+        //Hooks to the xml Elements
+        EventName= findViewById(R.id.InputEventName5);
+        Date= findViewById(R.id.InputDate5);
+        Time= findViewById(R.id.InputTime5);
+        Location= findViewById(R.id.InputLocation5);
+        MaxParticipants= findViewById(R.id.InputMaxParticipants5);
+        Publish= findViewById(R.id.InputPublish5);
+        ButtonSave= findViewById(R.id.ButtonSave5);
+
+        //save Data in DB on Button
+        ButtonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rootNode= FirebaseDatabase.getInstance();
+                reference= rootNode.getReference("Events");
+
+                //get all the values
+                String ValueEventName= EventName.getEditableText().toString();
+                String ValueDate= Date.getEditableText().toString();
+                String ValueTime= Time.getEditableText().toString();
+                String ValueLocation= Location.getEditableText().toString();
+                String ValueMaxParticipants= MaxParticipants.getEditableText().toString();
+                String ValuePublish= Publish.getEditableText().toString();
 
 
-    //including row5 to eventplanningActivity5 (for the Listview to see the paticipants)
-
-    //Adapter for ListView Element
-    class MyAdapter extends ArrayAdapter <String>{
-        Context context;
-        int rImage[];
-        String rText[];
-
-        MyAdapter(Context c, String text[], int image[]){
-           super(c, R.layout.row5, R.id.RowText5, text);
-           this.context=c;
-           this.rImage= image;
-           this.rText=text;
-
-        }
-        @NonNull
-        @Override
-
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View row5= layoutInflater.inflate(R.layout.row5, parent, false);
-            ImageView myImage=row5.findViewById(R.id.ProfileImage5);
-            TextView myText=row5.findViewById(R.id.RowText5);
-
-            myImage.setImageResource(rImage[position]);
-            myText.setText(rText[position]);
-
-            return row5;
-        }
+                EventHelperClass helperclass = new EventHelperClass();
+            }
+        });
     }
 }
