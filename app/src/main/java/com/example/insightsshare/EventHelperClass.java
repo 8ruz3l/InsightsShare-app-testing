@@ -2,9 +2,18 @@ package com.example.insightsshare;
 
 public class EventHelperClass {
 
-    String EventName, Date, Time, Location, MaxParticipants, Publish;
+    String EventName, Date, Time, Location, MaxParticipants; //Publish ;
 
     public EventHelperClass() {
+    }
+
+    public EventHelperClass(String eventName, String date, String time, String location, String maxParticipants){//, String publish) {
+        this.EventName = eventName;
+        this.Date = date;
+        this.Time = time;
+        this.Location = location;
+        this.MaxParticipants = maxParticipants;
+        //this.Publish= publish;
     }
 
     public String getEventName() {
@@ -47,11 +56,11 @@ public class EventHelperClass {
         MaxParticipants = maxParticipants;
     }
 
-    public String getPublish() {
-        return Publish;
-    }
+    //public String getPublish() {
+       // return Publish;
+   // }
 
-    public void setPublish(String publish) {
-        Publish = publish;
-    }
+    //public void setPublish(String publish) {
+        //Publish = publish;
+    //}
 }

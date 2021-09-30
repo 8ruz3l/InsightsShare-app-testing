@@ -30,7 +30,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
     //Variables for transfering Eventdata toDB
     EditText EventName, Date, Time, Location, MaxParticipants;
-    Switch Publish;
+    //Switch Publish;
     Button ButtonSave;
 
     //connection with DB:
@@ -49,15 +49,15 @@ public class EventplanningActivity5 extends AppCompatActivity {
         Time= findViewById(R.id.InputTime5);
         Location= findViewById(R.id.InputLocation5);
         MaxParticipants= findViewById(R.id.InputMaxParticipants5);
-        Publish= findViewById(R.id.InputPublish5);
+        //Publish= findViewById(R.id.InputPublish5);
         ButtonSave= findViewById(R.id.ButtonSave5);
 
         //save Data in DB on Button
         ButtonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rootNode= FirebaseDatabase.getInstance();
-                reference= rootNode.getReference("Events");
+                rootNode= FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app/");
+                reference= rootNode.getReference().child("Events");
 
                 //get all the values
                 String ValueEventName= EventName.getEditableText().toString();
@@ -65,11 +65,13 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 String ValueTime= Time.getEditableText().toString();
                 String ValueLocation= Location.getEditableText().toString();
                 String ValueMaxParticipants= MaxParticipants.getEditableText().toString();
-                String ValuePublish= Publish.getEditableText().toString();
+                //bool ValuePublish= Publish.getEditableText().toString();
 
 
-                EventHelperClass helperclass = new EventHelperClass();
+                EventHelperClass helperclass = new EventHelperClass(ValueEventName, ValueDate, ValueTime, ValueLocation, ValueMaxParticipants);//, ValuePublish);
+
+                reference.setValue(helperclass);
             }
-        });
+        }); //End of setOnClickListener
     }
 }
