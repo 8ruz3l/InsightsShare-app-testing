@@ -43,6 +43,13 @@ public class HomeFragment extends Fragment {
         database = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
         eventRef = database.getReference().child("Event");
 
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
         eventList = new ArrayList<>();
         eventListAdapter = new EventListAdapter(getContext(), eventList);
         eventsView.setAdapter(eventListAdapter);
@@ -50,13 +57,13 @@ public class HomeFragment extends Fragment {
         eventRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                eventList.clear();
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     EventItem eventItem = dataSnapshot.getValue(EventItem.class);
                     eventList.add(eventItem);
                 }
                 eventListAdapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -64,7 +71,5 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-        return view;
     }
 }
