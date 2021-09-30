@@ -76,7 +76,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
                 String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
 
-                EventItem helperclass = new EventItem(ValueEventName, ValueEventCreator, ValueCreationDate, ValuePlace, ValueDate, ValueParticipant);//, ValuePublish);
+                EventItem helperclass = new EventItem(ValueEventName, ValueEventCreator, ValueCreationDate, ValuePlace, ValueDate, ValueTime, ValueParticipant);//, ValuePublish);
 
                 reference.child(ValueCreationDate).setValue(helperclass);
             }
