@@ -29,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class EventplanningActivity5 extends AppCompatActivity {
 
     //Variables for transfering Eventdata toDB
-    EditText EventName, Date, Time, Location, MaxParticipants;
+    EditText eventName, eventDate, eventTime, eventPlace, eventParticipant;
     //Switch Publish;
     Button ButtonSave;
 
@@ -44,11 +44,11 @@ public class EventplanningActivity5 extends AppCompatActivity {
         setContentView(R.layout.activity_eventplanning5);
 
         //Hooks to the xml Elements
-        EventName= findViewById(R.id.InputEventName5);
-        Date= findViewById(R.id.InputDate5);
-        Time= findViewById(R.id.InputTime5);
-        Location= findViewById(R.id.InputLocation5);
-        MaxParticipants= findViewById(R.id.InputMaxParticipants5);
+        eventName= findViewById(R.id.InputEventName5);
+        eventDate= findViewById(R.id.InputDate5);
+        eventTime= findViewById(R.id.InputTime5);
+        eventPlace= findViewById(R.id.InputLocation5);
+        eventParticipant= findViewById(R.id.InputMaxParticipants5);
         //Publish= findViewById(R.id.InputPublish5);
         ButtonSave= findViewById(R.id.ButtonSave5);
 
@@ -60,17 +60,21 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 reference= rootNode.getReference().child("Events");
 
                 //get all the values
-                String ValueEventName= EventName.getEditableText().toString();
-                String ValueDate= Date.getEditableText().toString();
-                String ValueTime= Time.getEditableText().toString();
-                String ValueLocation= Location.getEditableText().toString();
-                String ValueMaxParticipants= MaxParticipants.getEditableText().toString();
-                //bool ValuePublish= Publish.getEditableText().toString();
+                String ValueEventName= eventName.getEditableText().toString();
+                String ValueDate= eventDate.getEditableText().toString();
+                String ValueTime= eventTime.getEditableText().toString(); //TODO: include Time in EventItemClass
+                String ValuePlace= eventPlace.getEditableText().toString();
+                String ValueParticipant= eventParticipant.getEditableText().toString();
+                //Switch doesn't work yet
+                //bool ValuePublish= eventPublish.getEditableText().toBool();
 
+                //Mockdata:
+                String ValueCreationDate= "21.09.2022";   //TODO:change mockdata to today
+                String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
 
-                EventHelperClass helperclass = new EventHelperClass(ValueEventName, ValueDate, ValueTime, ValueLocation, ValueMaxParticipants);//, ValuePublish);
+                EventItem helperclass = new EventItem(ValueEventName, ValueEventCreator, ValueCreationDate, ValuePlace, ValueDate, ValueParticipant);//, ValuePublish);
 
-                reference.setValue(helperclass);
+                reference.child(ValueEventName).setValue(helperclass);
             }
         }); //End of setOnClickListener
     }
