@@ -9,14 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.insightsshare.databinding.FragmentEventsCreationBinding;
-
 public class EventsCreationFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_events_creation, container, false);
+        View view = inflater.inflate(R.layout.fragment_events_creation, container, false);
+
+        // Set fragment title in toolbar
+        getActivity().setTitle(R.string.title_create_event_toolbar);
+
+        return view;
     }
 }

@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">InsightsShare</string>
 
+    <!-- Toolbar -->
+    <string name="title_home_toolbar">Anstehende Events</string>
+    <string name="title_my_event_toolbar">Eventkalender</string>
+    <string name="title_create_event_toolbar">Event planen</string>
+
     <!-- Bottom Navigation Bar -->
     <string name="title_activity_navigation">NavigationActivity</string>
     <string name="title_home">Home</string>
