@@ -1,44 +1,33 @@
 package com.example.insightsshare;
 
-import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
+import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Switch;
-import android.widget.TextView;
+
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Date;
 
-//import com.example.insightsshare.databinding.ActivityEventplanning5Binding;
-
 
 public class EventplanningActivity5 extends AppCompatActivity {
 
     //Variables for transfering Eventdata toDB
     EditText eventName, eventDate, eventTime, eventPlace, eventParticipant;
-    //Switch Publish;
     Button ButtonSave;
 
     //connection with DB:
     FirebaseDatabase rootNode;
     DatabaseReference reference;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,35 +40,38 @@ public class EventplanningActivity5 extends AppCompatActivity {
         eventTime= findViewById(R.id.InputTime5);
         eventPlace= findViewById(R.id.InputLocation5);
         eventParticipant= findViewById(R.id.InputMaxParticipants5);
-        //Publish= findViewById(R.id.InputPublish5);
         ButtonSave= findViewById(R.id.ButtonSave5);
 
         //save Data in DB on Button
         ButtonSave.setOnClickListener(new View.OnClickListener() {
-            @Override
+
+                @Override
             public void onClick(View view) {
                 rootNode= FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app/");
                 reference= rootNode.getReference().child("Event");
 
-                //get all the values
-                String ValueEventName= eventName.getEditableText().toString();
-                String ValueDate= eventDate.getEditableText().toString();
-                String ValueTime= eventTime.getEditableText().toString(); //TODO: include Time in EventItemClass
-                String ValuePlace= eventPlace.getEditableText().toString();
-                String ValueParticipant= eventParticipant.getEditableText().toString();
-                //Switch doesn't work yet
-                //bool ValuePublish= eventPublish.getEditableText().toBool();
-
                     //later used in ValueCreationDate
                     Date today= new Date();
-                String ValueCreationDate= today.toString();
 
+                //get all the values of the data (input) in stings so it can be stored
+                String ValueEventName= eventName.getEditableText().toString();
+                String ValueDate= eventDate.getEditableText().toString();
+                String ValueTime= eventTime.getEditableText().toString();
+                String ValuePlace= eventPlace.getEditableText().toString();
+                String ValueParticipant= eventParticipant.getEditableText().toString();
+                String ValueCreationDate= today.toString();
                 String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
 
+                //this is the point in which the data is stored in the DB
                 EventItem helperclass = new EventItem(ValueEventName, ValueEventCreator, ValueCreationDate, ValuePlace, ValueDate, ValueTime, ValueParticipant);//, ValuePublish);
 
-                reference.child(ValueCreationDate).setValue(helperclass);
-            }
-        }); //End of setOnClickListener
-    }
-}
+                reference.child(ValueCreationDate).setValue(helperclass); //PrimaryKey is ValueCreationDate
+
+                //display a little success-message, so that the user knows the data was saved
+                    Toast.makeText(EventplanningActivity5.this,"Erfolgreich gespeichert!",Toast.LENGTH_SHORT).show();
+                    //TODO: it would be nice to have a message that shows that the data is saved as to avoid redundant data because users don't belive it is saved
+
+            }   //end of onClick
+        });     //end of setOnClickListener
+    }           //end of onCreate
+}               //end of EventplanningActivity5
