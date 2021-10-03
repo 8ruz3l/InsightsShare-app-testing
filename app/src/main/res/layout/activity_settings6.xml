@@ -20,7 +20,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginEnd="28dp"
             android:layout_marginTop="60dp"
-            android:text="Einstellungen"
+            android:text="@string/settings6_title"
             android:textSize="24sp" />
 
         <ImageView
@@ -41,7 +41,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginEnd="28dp"
             android:layout_gravity="center_horizontal"
-            android:text="*automatisch Name*" />
+            android:text="@string/eventplanning5_creator" />
 
         <TextView
             android:id="@+id/OutputProfilDescription6"
@@ -51,7 +51,7 @@
             android:layout_marginEnd="28dp"
             android:layout_marginTop="24dp"
             android:layout_gravity="center_horizontal"
-            android:text="Biografie" />
+            android:text="@string/settings6_biography" />
 
         <View
             android:id="@+id/divider6_1"
@@ -67,7 +67,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginEnd="28dp"
             android:layout_marginTop="24dp"
-            android:text="Profil bearbeiten" />
+            android:text="@string/settings6_label_profil_edit" />
 
         <View
             android:id="@+id/divider6_2"
@@ -83,7 +83,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginEnd="28dp"
             android:layout_marginTop="24dp"
-            android:text="Darkmode" />
+            android:text="@string/settings6_label_lightmode" />
 
         <View
             android:id="@+id/divider6_3"
@@ -99,7 +99,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginEnd="28dp"
             android:layout_marginTop="24dp"
-            android:text="Sprache ändern" />
+            android:text="@string/settings6_label_language" />
 
         <View
             android:id="@+id/divider6_4"
@@ -112,10 +112,11 @@
             android:id="@+id/buttonLogOut6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
             android:layout_gravity="center_horizontal"
-            android:text="Abmelden" />
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="28dp"
+            android:backgroundTint="#9c1c4d"
+            android:text="@string/settings6_button_sign_out" />
     </LinearLayout>
 </ScrollView>

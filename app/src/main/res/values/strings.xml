@@ -29,4 +29,35 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_test">TestActivity</string>
+
+    <!-- Strings of Activity Eventplanning5-->
+    //labels
+    <string name="eventplanning5_title">Plan your event!</string>
+    <string name="eventplanning5_label_eventname">Eventname:</string>
+    <string name="eventplanning5_label_creator">Creator:</string>
+    <string name="eventplanning5_label_date">Date:</string>
+    <string name="eventplanning5_label_time">Time:</string>
+    <string name="eventplanning5_label_location">Location:</string>
+    <string name="eventplanning5_label_max_participants">Number of participants:</string>
+    <string name="eventplanning5_label_participants">Participants:</string>
+    //hints
+    <string name="eventplanning5_hint_eventname">What is the name of your event?</string>
+    <string name="eventplanning5_hint_location">Where will your event take place?</string>
+    <string name="eventplanning5_hint_max_participants">How many users can participate?</string>
+    //button
+    <string name="eventplanning5_button_save">save</string>
+    //automaticly shown name of the user
+    <string name="eventplanning5_creator">**Creator**</string> //TODO: globalVariable.toString()
+
+    <!-- Strings of Activity Settings-->
+    //label
+    <string name="settings6_title">Settings</string>
+    <string name="settings6_label_profil_edit">edit profile</string>
+    <string name="settings6_label_language">edit language</string>
+    <string name="settings6_label_lightmode">darkmode</string>
+    //button
+    <string name="settings6_button_sign_out">sign out</string>
+    //biography from DB
+    <string name="settings6_biography">**bio**</string>//TODO: get from DB
+
 </resources>
