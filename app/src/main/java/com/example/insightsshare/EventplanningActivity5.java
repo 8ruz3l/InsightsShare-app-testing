@@ -54,6 +54,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
                     Date today= new Date();
 
                 //get all the values of the data (input) in stings so it can be stored
+                String ValueEventId = reference.push().getKey();
                 String ValueEventName= eventName.getEditableText().toString();
                 String ValueDate= eventDate.getEditableText().toString();
                 String ValueTime= eventTime.getEditableText().toString();
@@ -63,9 +64,12 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
 
                 //this is the point in which the data is stored in the DB
-                EventItem helperclass = new EventItem(ValueEventName, ValueEventCreator, ValueCreationDate, ValuePlace, ValueDate, ValueTime, ValueParticipant);//, ValuePublish);
+                EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventCreator, ValueCreationDate, ValuePlace, ValueDate, ValueTime, ValueParticipant);//, ValuePublish);
 
-                reference.child(ValueCreationDate).setValue(helperclass); //PrimaryKey is ValueCreationDate
+                reference.child(ValueEventId).setValue(eventEntry); //PrimaryKey is ValueEventId
+
+                //Go back to NavigationActivity
+                onBackPressed();
 
                 //display a little success-message, so that the user knows the data was saved
                     Toast.makeText(EventplanningActivity5.this,"Erfolgreich gespeichert!",Toast.LENGTH_SHORT).show();

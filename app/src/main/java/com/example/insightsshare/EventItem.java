@@ -2,14 +2,15 @@ package com.example.insightsshare;
 
 public class EventItem {
 
-    public String eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime, eventParticipant;
+    public String eventId, eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime, eventParticipant;
 
     public EventItem() {
         // Required empty public constructor
      }
 
-    public EventItem(String eventName, String eventCreator, String eventCreationDate,
+    public EventItem(String eventId, String eventName, String eventCreator, String eventCreationDate,
                      String eventPlace, String eventDate, String eventTime, String eventParticipant) {
+        this.eventId = eventId;
         this.eventName = eventName;
         this.eventCreator = eventCreator;
         this.eventCreationDate = eventCreationDate;
@@ -17,6 +18,14 @@ public class EventItem {
         this.eventDate = eventDate;
         this.eventTime = eventTime;
         this.eventParticipant = eventParticipant;
+    }
+
+    public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 
     public String getEventName() {
