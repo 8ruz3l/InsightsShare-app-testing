@@ -8,6 +8,7 @@ public class EventItem {
         // Required empty public constructor
      }
 
+
     public EventItem(String eventId, String eventName, String eventCreator, String eventCreationDate,
                      String eventPlace, String eventDate, String eventTime, String eventParticipant) {
         this.eventId = eventId;
