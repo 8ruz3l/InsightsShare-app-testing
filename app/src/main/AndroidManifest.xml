@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InsightsShare" >
         <activity
+            android:name=".RegistrActivity"
+            android:exported="true" />
+        <activity
             android:name=".NavigationActivity"
             android:exported="true"
             android:label="@string/title_activity_navigation" />
