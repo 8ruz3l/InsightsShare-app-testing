@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     android:label="@string/title_create_event"
-    app:startDestination="@id/navigation_events_creation">
+    app:startDestination="@id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.insightsshare.ui.home.HomeFragment"
+        android:name="com.example.insightsshare.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_events_creation"
-        android:name="com.example.insightsshare.ui.eventsCreation.EventsCreationFragment"
-        android:label="@string/title_create_event"
-        tools:layout="@layout/fragment_events_creation" />
-
-    <fragment
         android:id="@+id/navigation_events_calendar"
-        android:name="com.example.insightsshare.ui.eventsCalendar.EventsCalendarFragment"
+        android:name="com.example.insightsshare.EventsCalendarFragment"
         android:label="@string/title_my_event"
         tools:layout="@layout/fragment_events_calendar" />
+
+    <activity
+        android:id="@+id/navigation_event_creation"
+        android:name="com.example.insightsshare.EventplanningActivity5"
+        android:label="activity_eventplanning5"
+        tools:layout="@layout/activity_eventplanning5" />
 </navigation>
