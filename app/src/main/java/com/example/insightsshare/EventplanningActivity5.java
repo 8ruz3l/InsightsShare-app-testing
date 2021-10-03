@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -44,6 +46,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
         //save Data in DB on Button
         ButtonSave.setOnClickListener(new View.OnClickListener() {
+            private SimpleDateFormat dateFormat;
 
                 @Override
             public void onClick(View view) {
@@ -51,7 +54,9 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 reference= rootNode.getReference().child("Event");
 
                     //later used in ValueCreationDate
+                    dateFormat= new SimpleDateFormat("dd-MM-yyyy");
                     Date today= new Date();
+                    String  todayStr= dateFormat.format(today);
 
                 //get all the values of the data (input) in stings so it can be stored
                 String ValueEventId = reference.push().getKey();
@@ -60,7 +65,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 String ValueTime= eventTime.getEditableText().toString();
                 String ValuePlace= eventPlace.getEditableText().toString();
                 String ValueParticipant= eventParticipant.getEditableText().toString();
-                String ValueCreationDate= today.toString();
+                String ValueCreationDate= todayStr;
                 String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
 
                 //this is the point in which the data is stored in the DB
@@ -73,7 +78,6 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
                 //display a little success-message, so that the user knows the data was saved
                     Toast.makeText(EventplanningActivity5.this,"Erfolgreich gespeichert!",Toast.LENGTH_SHORT).show();
-                    //TODO: it would be nice to have a message that shows that the data is saved as to avoid redundant data because users don't belive it is saved
 
             }   //end of onClick
         });     //end of setOnClickListener
