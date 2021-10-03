@@ -1,70 +1,77 @@
 package com.example.insightsshare;
 
-import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
+import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
 
-//import com.example.insightsshare.databinding.ActivityEventplanning5Binding;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Date;
 
 
 public class EventplanningActivity5 extends AppCompatActivity {
 
-    ListView listView;
-    int images[]= {R.mipmap.ic_launcher_round,R.mipmap.ic_launcher};
-    String mText[]= {"Name2", "Name1"};
+    //Variables for transfering Eventdata toDB
+    EditText eventName, eventDate, eventTime, eventPlace, eventParticipant;
+    Button ButtonSave;
+
+    //connection with DB:
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventplanning5);
 
-        listView = findViewById(R.id.ListOfParticipants5);
-        MyAdapter adapter= new MyAdapter(this, mText, images);
-        listView.setAdapter(adapter);
-    }
+        //Hooks to the xml Elements
+        eventName= findViewById(R.id.InputEventName5);
+        eventDate= findViewById(R.id.InputDate5);
+        eventTime= findViewById(R.id.InputTime5);
+        eventPlace= findViewById(R.id.InputLocation5);
+        eventParticipant= findViewById(R.id.InputMaxParticipants5);
+        ButtonSave= findViewById(R.id.ButtonSave5);
 
+        //save Data in DB on Button
+        ButtonSave.setOnClickListener(new View.OnClickListener() {
 
-    //including row5 to eventplanningActivity5 (for the Listview to see the paticipants)
+                @Override
+            public void onClick(View view) {
+                rootNode= FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app/");
+                reference= rootNode.getReference().child("Event");
 
-    //Adapter for ListView Element
-    class MyAdapter extends ArrayAdapter <String>{
-        Context context;
-        int rImage[];
-        String rText[];
+                    //later used in ValueCreationDate
+                    Date today= new Date();
 
-        MyAdapter(Context c, String text[], int image[]){
-           super(c, R.layout.row5, R.id.RowText5, text);
-           this.context=c;
-           this.rImage= image;
-           this.rText=text;
+                //get all the values of the data (input) in stings so it can be stored
+                String ValueEventName= eventName.getEditableText().toString();
+                String ValueDate= eventDate.getEditableText().toString();
+                String ValueTime= eventTime.getEditableText().toString();
+                String ValuePlace= eventPlace.getEditableText().toString();
+                String ValueParticipant= eventParticipant.getEditableText().toString();
+                String ValueCreationDate= today.toString();
+                String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
 
-        }
-        @NonNull
-        @Override
+                //this is the point in which the data is stored in the DB
+                EventItem helperclass = new EventItem(ValueEventName, ValueEventCreator, ValueCreationDate, ValuePlace, ValueDate, ValueTime, ValueParticipant);//, ValuePublish);
 
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View row5= layoutInflater.inflate(R.layout.row5, parent, false);
-            ImageView myImage=row5.findViewById(R.id.ProfileImage5);
-            TextView myText=row5.findViewById(R.id.RowText5);
+                reference.child(ValueCreationDate).setValue(helperclass); //PrimaryKey is ValueCreationDate
 
-            myImage.setImageResource(rImage[position]);
-            myText.setText(rText[position]);
+                //display a little success-message, so that the user knows the data was saved
+                    Toast.makeText(EventplanningActivity5.this,"Erfolgreich gespeichert!",Toast.LENGTH_SHORT).show();
+                    //TODO: it would be nice to have a message that shows that the data is saved as to avoid redundant data because users don't belive it is saved
 
-            return row5;
-        }
-    }
-}
+            }   //end of onClick
+        });     //end of setOnClickListener
+    }           //end of onCreate
+}               //end of EventplanningActivity5
