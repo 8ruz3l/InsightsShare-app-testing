@@ -7,7 +7,7 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_events_creation"
+        android:id="@+id/navigation_event_creation"
         android:icon="@drawable/ic_baseline_add_circle_outline_24"
         android:title="@string/title_create_event" />
 

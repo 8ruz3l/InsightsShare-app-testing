@@ -13,14 +13,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_events_creation"
-        android:name="com.example.insightsshare.EventsCreationFragment"
-        android:label="@string/title_create_event"
-        tools:layout="@layout/fragment_events_creation" />
-
-    <fragment
         android:id="@+id/navigation_events_calendar"
         android:name="com.example.insightsshare.EventsCalendarFragment"
         android:label="@string/title_my_event"
         tools:layout="@layout/fragment_events_calendar" />
+
+    <activity
+        android:id="@+id/navigation_event_creation"
+        android:name="com.example.insightsshare.EventplanningActivity5"
+        android:label="activity_eventplanning5"
+        tools:layout="@layout/activity_eventplanning5" />
 </navigation>
