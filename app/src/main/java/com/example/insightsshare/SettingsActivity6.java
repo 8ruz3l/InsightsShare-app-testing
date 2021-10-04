@@ -17,8 +17,6 @@ public class SettingsActivity6 extends AppCompatActivity {
 
         // Set up the toolbar
         setSupportActionBar(findViewById(R.id.toolbar));
-        // Set activity title in toolbar
-        getSupportActionBar().setTitle(R.string.title_setting_toolbar);
         //Toolbar back button
         backButton = (ImageView) findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
