@@ -2,9 +2,10 @@
     <string name="app_name">InsightsShare</string>
 
     <!-- Toolbar -->
-    <string name="title_home_toolbar">Anstehende Events</string>
-    <string name="title_my_event_toolbar">Eventkalender</string>
-    <string name="title_create_event_toolbar">Event planen</string>
+    <string name="title_home_toolbar">Upcoming Events</string>
+    <string name="title_my_event_toolbar">Events Calendar</string>
+    <string name="title_create_event_toolbar">Plan an Event</string>
+    <string name="title_setting_toolbar">Setting</string>
 
     <!-- Bottom Navigation Bar -->
     <string name="title_activity_navigation">NavigationActivity</string>
@@ -13,11 +14,11 @@
     <string name="title_my_event">My Event</string>
 
     <!-- Event row -->
-    <string name="event_creator">erstellt von</string>
-    <string name="event_creation_date">am</string>
-    <string name="event_place">Ort:</string>
-    <string name="event_date">Datum:</string>
-    <string name="event_participant">Teilnehmer:</string>
+    <string name="event_creator">created by</string>
+    <string name="event_creation_date">on</string>
+    <string name="event_place">Place:</string>
+    <string name="event_date">Date:</string>
+    <string name="event_participant">Number of Participants:</string>
 
     <string name="title_activity_eventplanning5">EventplanningActivity5</string>
     <!-- Strings used for fragments for navigation -->

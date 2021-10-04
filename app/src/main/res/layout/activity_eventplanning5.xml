@@ -1,184 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ScrollView5"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EventplanningActivity5" >
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/linearLayout5"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/TitleEventplanning5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="60dp"
-            android:text="Event planen"
-            android:textSize="24sp"
-             />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/LabelEventName5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="Eventname:" />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:titleMarginStart="50dp"
+                app:titleTextColor="@color/black" />
 
-        <EditText
-            android:id="@+id/InputEventName5"
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:tint="#9c1f4d" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/ScrollView5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        tools:context=".EventplanningActivity5">
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="14dp"
-            android:ems="10"
-            android:hint="Eventname eingeben"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/LabelReferent5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="Ersteller/in:" />
+            <TextView
+                android:id="@+id/LabelEventName5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:layout_weight="1"
+                android:text="Eventname:" />
 
-        <TextView
-            android:id="@+id/OutputReferent5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="14dp"
-            android:text="*automatisch Name*" />
+            <EditText
+                android:id="@+id/InputEventName5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="28dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Eventname eingeben"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
 
-        <TextView
-            android:id="@+id/LabelDate5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="Datum:" />
+            <TextView
+                android:id="@+id/LabelReferent5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="Ersteller/in:" />
 
-        <EditText
-            android:id="@+id/InputDate5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="14dp"
-            android:ems="10"
-            android:inputType="date"
-            android:minHeight="48dp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            <TextView
+                android:id="@+id/OutputReferent5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="28dp"
+                android:text="*automatisch Name*" />
 
-        <TextView
-            android:id="@+id/LabelTime5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="Uhrzeit:" />
+            <TextView
+                android:id="@+id/LabelDate5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="Datum:" />
 
-        <EditText
-            android:id="@+id/InputTime5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="14dp"
-            android:ems="10"
-            android:inputType="time"
-            android:minHeight="48dp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            <EditText
+                android:id="@+id/InputDate5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="28dp"
+                android:ems="10"
+                android:inputType="date"
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-        <TextView
-            android:id="@+id/LabelLocation5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="Ort:" />
+            <TextView
+                android:id="@+id/LabelTime5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="Uhrzeit:" />
 
-        <EditText
-            android:id="@+id/InputLocation5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="14dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="Ort eingeben"
-            android:inputType="textMultiLine"
-            android:minHeight="48dp" />
+            <EditText
+                android:id="@+id/InputTime5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="28dp"
+                android:ems="10"
+                android:inputType="time"
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-        <TextView
-            android:id="@+id/LabelMaxParticipants5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="Anzahl der Teilnehmer:" />
+            <TextView
+                android:id="@+id/LabelLocation5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="Ort:" />
 
-        <EditText
-            android:id="@+id/InputMaxParticipants5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="14dp"
-            android:ems="10"
-            android:hint="Maximale Anzahl der Teilnehmer eintragen"
-            android:inputType="number"
-            android:minHeight="48dp" />
+            <EditText
+                android:id="@+id/InputLocation5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="28dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Ort eingeben"
+                android:inputType="textMultiLine"
+                android:minHeight="48dp" />
 
-        <View
-            android:id="@+id/divider5_1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
+            <TextView
+                android:id="@+id/LabelMaxParticipants5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="Anzahl der Teilnehmer:" />
 
-        <Button
-            android:id="@+id/ButtonSave5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="Speichern"
-            />
+            <EditText
+                android:id="@+id/InputMaxParticipants5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="28dp"
+                android:ems="10"
+                android:hint="Maximale Anzahl der Teilnehmer eintragen"
+                android:inputType="number"
+                android:minHeight="48dp" />
 
-        <TextView
-            android:id="@+id/LabelParticipants5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="Teilnehmer:innen:" />
+            <View
+                android:id="@+id/divider5_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/ListOfParticipants5"/>
+            <Button
+                android:id="@+id/ButtonSave5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="Speichern" />
 
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/LabelParticipants5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="Teilnehmer:innen:" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ListOfParticipants5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
