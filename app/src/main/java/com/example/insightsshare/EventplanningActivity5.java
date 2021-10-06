@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +27,8 @@ import java.util.Date;
 
 
 public class EventplanningActivity5 extends AppCompatActivity {
+    //Toolbar elements
+    ImageView backButton;
 
     //Time- and DatePicker
     private DatePickerDialog datePickerDialog;
@@ -47,6 +50,17 @@ public class EventplanningActivity5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventplanning5);
+      
+        // Set up the toolbar
+        setSupportActionBar(findViewById(R.id.toolbar));
+        //Toolbar back button
+        backButton = (ImageView) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         //Methode to change Date with the Datepicker
         initDatePicker();
@@ -88,7 +102,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
             assert ValueEventId != null;
             reference.child(ValueEventId).setValue(eventEntry); //PrimaryKey is ValueEventId
 
-            //Go back to NavigationActivity
+            //Automatically redirect user to NavigationActivity
             onBackPressed();
 
             //display a little success-message, so that the user knows the data was saved

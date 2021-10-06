@@ -16,7 +16,7 @@
             android:id="@+id/event_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Event1"
+            android:text="Event Name"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -38,7 +38,7 @@
                 android:id="@+id/event_creator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Benutzername"
+                android:text="Username"
                 android:textColor="@color/black" />
 
             <TextView
@@ -51,7 +51,7 @@
                 android:id="@+id/event_creation_date"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="19.09.2021"
+                android:text="00.00.0000"
                 android:textColor="@color/black" />
 
         </LinearLayout>
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Berlin" />
+                android:text="Place" />
 
         </LinearLayout>
 
@@ -94,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="25.10.2021" />
+                android:text="00.00.0000" />
 
         </LinearLayout>
 
