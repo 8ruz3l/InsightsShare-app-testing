@@ -1,8 +1,11 @@
 package com.example.insightsshare;
 
+import java.util.ArrayList;
+
 public class EventItem {
 
-    public String eventId, eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime, eventParticipant;
+    public String eventId, eventName, eventCreator, eventCreationDate, eventPlace, eventDate,
+            eventTime, maxParticipants;
 
     public EventItem() {
         // Required empty public constructor
@@ -10,7 +13,7 @@ public class EventItem {
 
 
     public EventItem(String eventId, String eventName, String eventCreator, String eventCreationDate,
-                     String eventPlace, String eventDate, String eventTime, String eventParticipant) {
+                     String eventPlace, String eventDate, String eventTime, String maxParticipants) {
         this.eventId = eventId;
         this.eventName = eventName;
         this.eventCreator = eventCreator;
@@ -18,7 +21,7 @@ public class EventItem {
         this.eventPlace = eventPlace;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
-        this.eventParticipant = eventParticipant;
+        this.maxParticipants = maxParticipants;
     }
 
     public String getEventId() {
@@ -77,11 +80,11 @@ public class EventItem {
         this.eventTime = eventTime;
     }
 
-    public String getEventParticipant() {
-        return eventParticipant;
+    public String getMaxParticipants() {
+        return maxParticipants;
     }
 
-    public void setEventParticipant(String eventParticipant) {
-        this.eventParticipant = eventParticipant;
+    public void setMaxParticipants(String maxParticipants) {
+        this.maxParticipants = maxParticipants;
     }
 }

@@ -3,9 +3,7 @@ package com.example.insightsshare;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
 import android.view.View;
 
 import android.widget.Button;
@@ -25,7 +23,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
     ImageView backButton;
 
     //Variables for transfering Eventdata toDB
-    EditText eventName, eventDate, eventTime, eventPlace, eventParticipant;
+    EditText eventName, eventDate, eventTime, eventPlace, maxParticipants;
     Button ButtonSave;
 
     //connection with DB:
@@ -53,7 +51,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
         eventDate= findViewById(R.id.InputDate5);
         eventTime= findViewById(R.id.InputTime5);
         eventPlace= findViewById(R.id.InputLocation5);
-        eventParticipant= findViewById(R.id.InputMaxParticipants5);
+        maxParticipants = findViewById(R.id.InputMaxParticipants5);
         ButtonSave= findViewById(R.id.ButtonSave5);
 
         //save Data in DB on Button
@@ -73,7 +71,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 String ValueDate= eventDate.getEditableText().toString();
                 String ValueTime= eventTime.getEditableText().toString();
                 String ValuePlace= eventPlace.getEditableText().toString();
-                String ValueParticipant= eventParticipant.getEditableText().toString();
+                String ValueParticipant= maxParticipants.getEditableText().toString();
                 String ValueCreationDate= today.toString();
                 String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
 
