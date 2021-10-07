@@ -5,7 +5,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+  
+  
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -38,19 +39,30 @@
         </RelativeLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
-
+  
     <ScrollView
         android:id="@+id/ScrollView5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/appbar"
         tools:context=".EventplanningActivity5">
-
+  
         <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:outlineProvider="bounds">
+          
+            <TextView
+                android:id="@+id/TitleEventplanning5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/eventplanning5_title"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/LabelEventName5"
@@ -60,7 +72,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
                 android:layout_weight="1"
-                android:text="Eventname:" />
+                android:text="@string/eventplanning5_label_eventname" />
 
             <EditText
                 android:id="@+id/InputEventName5"
@@ -71,7 +83,7 @@
                 android:layout_marginEnd="28dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Eventname eingeben"
+                android:hint="@string/eventplanning5_hint_eventname"
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
@@ -82,7 +94,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:text="Ersteller/in:" />
+                android:text="@string/eventplanning5_label_creator" />
 
             <TextView
                 android:id="@+id/OutputReferent5"
@@ -91,8 +103,29 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="28dp"
-                android:text="*automatisch Name*" />
+                android:text="@string/eventplanning5_creator" />
 
+            <TextView
+                android:id="@+id/LabeDescription5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/eventplanning5_label_description" />
+
+            <EditText
+                android:id="@+id/InputDescription5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="28dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/eventplanning5_hint_description"
+                android:inputType="text"
+                android:minHeight="48dp" />
             <TextView
                 android:id="@+id/LabelDate5"
                 android:layout_width="match_parent"
@@ -100,19 +133,20 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:text="Datum:" />
+                android:text="@string/eventplanning5_label_date" />
 
-            <EditText
-                android:id="@+id/InputDate5"
+            <Button
+                android:id="@+id/buttonDatePicker5"
+                style="?android:spinnerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:ems="10"
-                android:inputType="date"
-                android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:onClick="openDatePicker"
+                android:outlineProvider="bounds"
+                android:text="@string/eventplanning5_date"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/LabelTime5"
@@ -121,19 +155,20 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:text="Uhrzeit:" />
+                android:text="@string/eventplanning5_label_time" />
 
-            <EditText
-                android:id="@+id/InputTime5"
+            <Button
+                android:id="@+id/buttonTimePicker5"
+                style="?android:spinnerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:ems="10"
-                android:inputType="time"
-                android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:onClick="openTimePicker"
+                android:outlineProvider="bounds"
+                android:text="@string/eventplanning5_time"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/LabelLocation5"
@@ -142,7 +177,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:text="Ort:" />
+                android:text="@string/eventplanning5_label_location" />
 
             <EditText
                 android:id="@+id/InputLocation5"
@@ -153,8 +188,8 @@
                 android:layout_marginEnd="28dp"
                 android:ems="10"
                 android:gravity="start|top"
-                android:hint="Ort eingeben"
-                android:inputType="textMultiLine"
+                android:hint="@string/eventplanning5_hint_location"
+                android:inputType="text"
                 android:minHeight="48dp" />
 
             <TextView
@@ -164,7 +199,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:text="Anzahl der Teilnehmer:" />
+                android:text="@string/eventplanning5_label_max_participants" />
 
             <EditText
                 android:id="@+id/InputMaxParticipants5"
@@ -174,7 +209,7 @@
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="28dp"
                 android:ems="10"
-                android:hint="Maximale Anzahl der Teilnehmer eintragen"
+                android:hint="@string/eventplanning5_hint_max_participants"
                 android:inputType="number"
                 android:minHeight="48dp" />
 
@@ -191,7 +226,8 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:text="Speichern" />
+                android:backgroundTint="#9C1C4D"
+                android:text="@string/eventplanning5_button_save" />
 
             <TextView
                 android:id="@+id/LabelParticipants5"
@@ -200,7 +236,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:text="Teilnehmer:innen:" />
+                android:text="@string/eventplanning5_label_participants" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ListOfParticipants5"
