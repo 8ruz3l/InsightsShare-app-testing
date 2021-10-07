@@ -66,7 +66,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/event_place"
+                android:text="@string/eventplanning5_label_location"
                 android:textColor="@color/black" />
 
             <TextView
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/event_date"
+                android:text="@string/eventplanning5_label_date"
                 android:textColor="@color/black" />
 
             <TextView
@@ -108,7 +108,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/event_participant"
+                android:text="@string/eventplanning5_label_max_participants"
                 android:textColor="@color/black" />
 
             <TextView

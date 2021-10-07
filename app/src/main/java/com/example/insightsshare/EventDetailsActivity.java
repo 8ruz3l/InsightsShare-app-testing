@@ -22,7 +22,7 @@ public class EventDetailsActivity extends AppCompatActivity {
     DatabaseReference idRef;
 
     String eventId;
-    TextView eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime;
+    TextView eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime, eventDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         eventDate = findViewById(R.id.event_date);
         eventTime = findViewById(R.id.event_time);
         eventPlace =  findViewById(R.id.event_place);
+        eventDescription = findViewById(R.id.event_description);
 
         database = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
         idRef = database.getReference().child("Event").child(eventId);
@@ -64,6 +65,7 @@ public class EventDetailsActivity extends AppCompatActivity {
                 eventDate.setText(eventItem.getEventDate());
                 eventTime.setText(eventItem.getEventTime());
                 eventPlace.setText(eventItem.getEventPlace());
+                eventDescription.setText(eventItem.getEventDescription());
             }
 
             @Override

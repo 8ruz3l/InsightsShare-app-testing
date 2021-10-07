@@ -17,11 +17,6 @@
     <!-- Event row -->
     <string name="event_creator">created by</string>
     <string name="event_creation_date">on</string>
-    <string name="event_place">Place:</string>
-    <string name="event_date">Date:</string>
-    <string name="event_time">Time:</string>
-    <string name="event_description">Description:</string>
-    <string name="event_participant">Number of Participants:</string>
 
     <!-- Event Details -->
     <string name="join_button">Join</string>
