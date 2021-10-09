@@ -38,7 +38,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
     int tHour, tMin;
 
     //variables for transfering Eventdata to DB
-    EditText eventName, eventDescription, eventPlace, eventParticipant;
+    EditText eventName, eventDescription, eventPlace, maxParticipants;
     Button ButtonSave;
 
     //connection with DB:
@@ -73,7 +73,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
         datePickerButton= findViewById(R.id.buttonDatePicker5);
         timePickerButton= findViewById(R.id.buttonTimePicker5);
         eventPlace= findViewById(R.id.InputLocation5);
-        eventParticipant= findViewById(R.id.InputMaxParticipants5);
+        maxParticipants = findViewById(R.id.InputMaxParticipants5);
         ButtonSave= findViewById(R.id.ButtonSave5);
 
         datePickerButton.setText(getTodaysDate());
@@ -91,7 +91,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
             String ValueDate= datePickerButton.getText().toString();
             String ValueTime= timePickerButton.getText().toString();
             String ValuePlace= eventPlace.getEditableText().toString();
-            String ValueParticipant= eventParticipant.getEditableText().toString();
+            String ValueParticipant= maxParticipants.getEditableText().toString();
             String todayStr= getTodaysDate();
             String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
 
