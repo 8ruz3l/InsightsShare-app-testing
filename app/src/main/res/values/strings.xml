@@ -2,9 +2,11 @@
     <string name="app_name">InsightsShare</string>
 
     <!-- Toolbar -->
-    <string name="title_home_toolbar">Anstehende Events</string>
-    <string name="title_my_event_toolbar">Eventkalender</string>
-    <string name="title_create_event_toolbar">Event planen</string>
+    <string name="title_home_toolbar">Upcoming Events</string>
+    <string name="title_my_event_toolbar">Events Calendar</string>
+    <string name="title_create_event_toolbar">Plan an Event</string>
+    <string name="title_setting_toolbar">Setting</string>
+    <string name="title_event_details">Event Details</string>
 
     <!-- Bottom Navigation Bar -->
     <string name="title_activity_navigation">NavigationActivity</string>
@@ -13,11 +15,11 @@
     <string name="title_my_event">My Event</string>
 
     <!-- Event row -->
-    <string name="event_creator">erstellt von</string>
-    <string name="event_creation_date">am</string>
-    <string name="event_place">Ort:</string>
-    <string name="event_date">Datum:</string>
-    <string name="event_participant">Teilnehmer:</string>
+    <string name="event_creator">created by</string>
+    <string name="event_creation_date">on</string>
+
+    <!-- Event Details -->
+    <string name="join_button">Join</string>
 
     <string name="title_activity_eventplanning5">EventplanningActivity5</string>
     <!-- Strings used for fragments for navigation -->
@@ -33,4 +35,38 @@
     <string name="password_label_hint">password</string>
     <string name="username_label_hint">Your Username</string>
     <string name="email_label_hint">Your E-Mail</string>
+    <!-- Strings of Activity Eventplanning5-->
+    //labels
+    <string name="eventplanning5_title">Plan your event!</string>
+    <string name="eventplanning5_label_eventname">Eventname:</string>
+    <string name="eventplanning5_label_creator">Creator:</string>
+    <string name="eventplanning5_label_description">Description:</string>
+    <string name="eventplanning5_label_date">Date:</string>
+    <string name="eventplanning5_label_time">Time:</string>
+    <string name="eventplanning5_label_location">Location:</string>
+    <string name="eventplanning5_label_max_participants">Number of participants:</string>
+    <string name="eventplanning5_label_participants">Participants:</string>
+    //hints
+    <string name="eventplanning5_hint_eventname">What is the name of your event?</string>
+    <string name="eventplanning5_hint_description">What is your event all about?</string>
+    <string name="eventplanning5_hint_location">Where will your event take place?</string>
+    <string name="eventplanning5_hint_max_participants">How many users can participate?</string>
+    //button
+    <string name="eventplanning5_button_save">save</string>
+    <string name="eventplanning5_date">JAN 01 2022</string>
+    <string name="eventplanning5_time">00:00 AM</string>
+    //automaticly shown name of the user
+    <string name="eventplanning5_creator">**Creator**</string> //TODO: globalVariable.toString()
+
+    <!-- Strings of Activity Settings-->
+    //label
+    <string name="settings6_title">Settings</string>
+    <string name="settings6_label_profil_edit">edit profile</string>
+    <string name="settings6_label_language">edit language</string>
+    <string name="settings6_label_lightmode">darkmode</string>
+    //button
+    <string name="settings6_button_sign_out">sign out</string>
+    //biography from DB
+    <string name="settings6_biography">**bio**</string>//TODO: get from DB
+
 </resources>

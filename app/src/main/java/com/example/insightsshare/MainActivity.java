@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         loginButton = (Button) findViewById(R.id.anmeldeButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 String email = loginEmail.getText().toString().trim();

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -100,7 +101,6 @@ public class RegistrActivity extends AppCompatActivity /*implements OnClickListe
                             UserClass userInfo = new UserClass(username, email, password);
 
                             reference.child(username).setValue(userInfo);
-
                         }
                         else{
                             Toast.makeText(RegistrActivity.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -109,7 +109,7 @@ public class RegistrActivity extends AppCompatActivity /*implements OnClickListe
                 });
             }
         });
-
+      
         backAnmButton = (Button) findViewById(R.id.backToAnmButton);
         backAnmButton.setOnClickListener(new View.OnClickListener() {
             @Override

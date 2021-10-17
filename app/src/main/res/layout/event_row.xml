@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/event_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="5dp"
-    android:layout_margin="16dp">
+    android:layout_margin="16dp"
+    app:cardElevation="5dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -16,7 +17,7 @@
             android:id="@+id/event_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Event1"
+            android:text="Event Name"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -38,20 +39,20 @@
                 android:id="@+id/event_creator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Benutzername"
+                android:text="Username"
                 android:textColor="@color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
-                android:text="@string/event_creation_date"/>
+                android:text="@string/event_creation_date" />
 
             <TextView
                 android:id="@+id/event_creation_date"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="19.09.2021"
+                android:text="00.00.0000"
                 android:textColor="@color/black" />
 
         </LinearLayout>
@@ -65,15 +66,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/event_place"
-                android:textColor="@color/black"/>
+                android:text="@string/eventplanning5_label_location"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/event_place"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Berlin" />
+                android:text="Place" />
 
         </LinearLayout>
 
@@ -86,15 +87,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/event_date"
-                android:textColor="@color/black"/>
+                android:text="@string/eventplanning5_label_date"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/event_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="25.10.2021" />
+                android:text="00.00.0000" />
 
         </LinearLayout>
 
@@ -107,8 +108,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/event_participant"
-                android:textColor="@color/black"/>
+                android:text="@string/eventplanning5_label_max_participants"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/event_current_participant"
@@ -121,10 +122,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="/"/>
+                android:text="/" />
 
             <TextView
-                android:id="@+id/event_max_participant"
+                android:id="@+id/event_max_participants"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
