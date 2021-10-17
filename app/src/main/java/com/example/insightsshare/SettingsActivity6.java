@@ -2,8 +2,10 @@ package com.example.insightsshare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.google.firebase.auth.FirebaseAuth;
 import android.widget.ImageView;
 
 public class SettingsActivity6 extends AppCompatActivity {
@@ -25,5 +27,11 @@ public class SettingsActivity6 extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    public void logout(View view) {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }
