@@ -29,4 +29,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_test">TestActivity</string>
+
+    <string name="password_label_hint">password</string>
+    <string name="username_label_hint">Your Username</string>
+    <string name="email_label_hint">Your E-Mail</string>
 </resources>
