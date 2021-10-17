@@ -71,13 +71,6 @@ public class RegistrActivity extends AppCompatActivity /*implements OnClickListe
                     return;
                 }
 
-               /* rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app/");
-                reference = rootNode.getReference("User");
-
-                UserClass userInfo = new UserClass(username, email, password);
-
-                reference.child(username).setValue(userInfo);*/
-
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -100,6 +93,13 @@ public class RegistrActivity extends AppCompatActivity /*implements OnClickListe
 
                             Toast.makeText(RegistrActivity.this, "User Created", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
+
+                            rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app/");
+                            reference = rootNode.getReference("User");
+
+                            UserClass userInfo = new UserClass(username, email, password);
+
+                            reference.child(username).setValue(userInfo);
 
                         }
                         else{

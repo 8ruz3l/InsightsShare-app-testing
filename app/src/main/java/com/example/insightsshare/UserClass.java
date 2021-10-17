@@ -14,7 +14,6 @@ public class UserClass {
         this.passwort = passwort;
     }
 
-    /*
     public String getUsername() {
         return username;
     }
@@ -38,5 +37,5 @@ public class UserClass {
     public void setPasswort(String passwort) {
         this.passwort = passwort;
     }
-    */
+
 }
