@@ -100,7 +100,7 @@ public class RegistrActivity extends AppCompatActivity /*implements OnClickListe
 
                             UserClass userInfo = new UserClass(username, email, password);
 
-                            reference.child(username).setValue(userInfo);
+                            reference.child(user.getUid()).setValue(userInfo);
                         }
                         else{
                             Toast.makeText(RegistrActivity.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
