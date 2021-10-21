@@ -17,11 +17,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -78,6 +81,9 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
         datePickerButton.setText(getTodaysDate());
 
+        // Get current user
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         //save Data in DB on Buttonclick
         //end of onClick
         ButtonSave.setOnClickListener(view -> {
@@ -91,12 +97,14 @@ public class EventplanningActivity5 extends AppCompatActivity {
             String ValueDate= datePickerButton.getText().toString();
             String ValueTime= timePickerButton.getText().toString();
             String ValuePlace= eventPlace.getEditableText().toString();
-            String ValueParticipant= maxParticipants.getEditableText().toString();
+            String ValueMaxParticipants= maxParticipants.getEditableText().toString();
             String todayStr= getTodaysDate();
-            String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
+            String ValueEventCreator= user.getDisplayName();
+            ArrayList<UserClass> ValueEventParticipants;
 
             //here the data is collected (to be send to the DB in the next step)
-            EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription, ValueEventCreator, todayStr, ValuePlace, ValueDate, ValueTime, ValueParticipant);//, ValuePublish);
+            EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
+                    ValueEventCreator, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);//, ValuePublish);
 
             //data is stored in the DB
             assert ValueEventId != null;
