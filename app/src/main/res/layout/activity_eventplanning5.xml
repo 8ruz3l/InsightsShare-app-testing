@@ -233,20 +233,6 @@
                 android:backgroundTint="#9C1C4D"
                 android:text="@string/eventplanning5_button_save" />
 
-            <TextView
-                android:id="@+id/LabelParticipants5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="28dp"
-                android:text="@string/eventplanning5_label_participants" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/ListOfParticipants5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
         </LinearLayout>
 
     </ScrollView>
