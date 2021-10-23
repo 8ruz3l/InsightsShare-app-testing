@@ -16,12 +16,16 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -42,11 +46,12 @@ public class EventplanningActivity5 extends AppCompatActivity {
     int tHour, tMin;
 
     //variables for transfering Eventdata to DB
+    TextView eventCreator;
     EditText eventName, eventDescription, eventPlace, maxParticipants;
     Button ButtonSave;
 
     //variables for updating existing Eventdata
-    Boolean updateExistingEvent= true; //TODO: Eventdetails gives this (as a way for Eventplanning to know if it's updating or creating an event)
+    Boolean updateExistingEvent= false; //TODO: Eventdetails gives this (as a way for Eventplanning to know if it's updating or creating an event)
     String existingEventID="-MmYtxFroxBcTQhMYpiU"; //TODO: Eventdetails gives the parameters of the chosen Event
 
 
@@ -84,10 +89,37 @@ public class EventplanningActivity5 extends AppCompatActivity {
         eventPlace= findViewById(R.id.InputLocation5);
         maxParticipants = findViewById(R.id.InputMaxParticipants5);
         ButtonSave= findViewById(R.id.ButtonSave5);
+        eventCreator= (TextView)this.findViewById(R.id.OutputReferent5);
+        //delete later
+        eventCreator.setText("creator"); //TODO:change mockdata to real automatically shown name
 
-        //TODO: fill the xml fields with the data of the existing event if (updateExistingEvent= true)
-        // this is only for new Events
-        datePickerButton.setText(getTodaysDate());
+        //fill the xml fields with the data of the existing event if (updateExistingEvent= true)
+        if (updateExistingEvent==false) {
+            // this is only for new Events
+            datePickerButton.setText(getTodaysDate());
+        } else {
+            rootNode = FirebaseDatabase.getInstance();
+            reference = rootNode.getReference("Event");
+
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    EventItem eventItem = snapshot.getValue(EventItem.class);
+
+                    eventName.setText(eventItem.getEventName());
+                    eventDescription.setText(eventItem.getEventDescription());
+                    eventCreator.setText(eventItem.getEventCreator());
+                    datePickerButton.setText(eventItem.getEventDate());
+                    timePickerButton.setText(eventItem.getEventTime());
+                    eventPlace.setText(eventItem.getEventPlace());
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }       // end of on cancelled
+            });         // end of Listener
+        }               //end of if else
+
 
         //save/ updates Data in DB on Buttonclick
         ButtonSave.setOnClickListener(view -> {
@@ -95,8 +127,8 @@ public class EventplanningActivity5 extends AppCompatActivity {
             rootNode = FirebaseDatabase.getInstance();
             reference = rootNode.getReference("Event");
 
-            //decides between cerating a new Event or updating an existing Event
-            if (updateExistingEvent= false) {
+            //decides between creating a new Event or updating an existing Event
+            if (updateExistingEvent== false) {
                 //get all the values of the data (input) in stings so it can be stored
                 String ValueEventId = reference.push().getKey();
                 String ValueEventName = eventName.getEditableText().toString();
@@ -106,7 +138,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 String ValuePlace = eventPlace.getEditableText().toString();
                 String ValueMaxParticipants = maxParticipants.getEditableText().toString();
                 String todayStr = getTodaysDate();
-                String ValueEventCreator = "me"; //TODO:change mockdata to real automatically shown name
+                String ValueEventCreator = eventCreator.getText().toString();
 
                 //here the data is collected (to be send to the DB in the next step)
                 EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
