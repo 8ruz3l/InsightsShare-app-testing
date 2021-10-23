@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,13 +53,13 @@ public class EventplanningActivity5 extends AppCompatActivity {
     Button ButtonSave;
 
     //variables for updating existing Eventdata
-    Boolean updateExistingEvent= false; //TODO: Eventdetails gives this (as a way for Eventplanning to know if it's updating or creating an event)
+    Boolean updateExistingEvent= true; //TODO: Eventdetails gives this (as a way for Eventplanning to know if it's updating or creating an event)
     String existingEventID="-MmYtxFroxBcTQhMYpiU"; //TODO: Eventdetails gives the parameters of the chosen Event
 
 
     //connection with DB:
     FirebaseDatabase rootNode;
-    DatabaseReference reference;
+    DatabaseReference reference, userReference;
 
 
     @Override
@@ -81,6 +83,26 @@ public class EventplanningActivity5 extends AppCompatActivity {
         //Methode to change Time with the Timepicker
         initTimePicker();
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        rootNode = FirebaseDatabase.getInstance();
+        userReference = rootNode.getReference().child("User").child(user.getUid());
+
+        userReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                UserClass userClass = snapshot.getValue(UserClass.class);
+                eventCreator.setText(userClass.getUsername());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
         //Hooks to the xml Elements
         eventName= findViewById(R.id.InputEventName5);
         eventDescription= findViewById(R.id.InputDescription5);
@@ -90,8 +112,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
         maxParticipants = findViewById(R.id.InputMaxParticipants5);
         ButtonSave= findViewById(R.id.ButtonSave5);
         eventCreator= (TextView)this.findViewById(R.id.OutputReferent5);
-        //delete later
-        eventCreator.setText("creator"); //TODO:change mockdata to real automatically shown name
+
 
         //fill the xml fields with the data of the existing event if (updateExistingEvent= true)
         if (updateExistingEvent==false) {
@@ -99,26 +120,27 @@ public class EventplanningActivity5 extends AppCompatActivity {
             datePickerButton.setText(getTodaysDate());
         } else {
             rootNode = FirebaseDatabase.getInstance();
-            reference = rootNode.getReference("Event");
+            reference = rootNode.getReference().child("Event").child(existingEventID);
 
-            reference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    EventItem eventItem = snapshot.getValue(EventItem.class);
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                 @Override
+                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                     EventItem eventItem = snapshot.getValue(EventItem.class);
 
-                    eventName.setText(eventItem.getEventName());
-                    eventDescription.setText(eventItem.getEventDescription());
-                    eventCreator.setText(eventItem.getEventCreator());
-                    datePickerButton.setText(eventItem.getEventDate());
-                    timePickerButton.setText(eventItem.getEventTime());
-                    eventPlace.setText(eventItem.getEventPlace());
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                     eventName.setText(eventItem.getEventName());
+                     eventDescription.setText(eventItem.getEventDescription());
+                     eventCreator.setText(eventItem.getEventCreator());
+                     datePickerButton.setText(eventItem.getEventDate());
+                     timePickerButton.setText(eventItem.getEventTime());
+                     eventPlace.setText(eventItem.getEventPlace());
+                 }
 
-                }       // end of on cancelled
-            });         // end of Listener
-        }               //end of if else
+                 @Override
+                 public void onCancelled(@NonNull DatabaseError error) {
+
+                 }
+             }); // end of Listener
+        } //end of if else
 
 
         //save/ updates Data in DB on Buttonclick
@@ -128,7 +150,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
             reference = rootNode.getReference("Event");
 
             //decides between creating a new Event or updating an existing Event
-            if (updateExistingEvent== false) {
+            if (updateExistingEvent == false) {
                 //get all the values of the data (input) in stings so it can be stored
                 String ValueEventId = reference.push().getKey();
                 String ValueEventName = eventName.getEditableText().toString();
@@ -152,6 +174,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 //get all the existing and new values of the eventdata in stings so it can be stored
                 String eventId = existingEventID;
                 String ValueEventName = eventName.getEditableText().toString();
+                String ValueEventCreator = eventCreator.getText().toString();
                 String ValueEventDescription = eventDescription.getEditableText().toString();
                 String ValueDate = datePickerButton.getText().toString();
                 String ValueTime = timePickerButton.getText().toString();
@@ -161,6 +184,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 //put the changeable data in a Map because this is the type in which it can be stored in: reference.child().updateChildren(!!!MAP REQUIRED!!!);
                 HashMap<String, Object> EventMap= new HashMap<String, Object>();
                 EventMap.put("eventName", ValueEventName);
+                EventMap.put("eventCreator", ValueEventCreator);
                 EventMap.put("eventDescription", ValueEventDescription);
                 EventMap.put("eventDate", ValueDate);
                 EventMap.put("eventTime", ValueTime);
@@ -172,13 +196,16 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 reference=FirebaseDatabase.getInstance().getReference("Event");
                 reference.child(eventId).updateChildren(EventMap);
             }
+            // to reset to default state
+            updateExistingEvent= false;
+
             //Automatically redirect user to NavigationActivity
             onBackPressed();
 
             //display a little success-message, so that the user knows the data was saved
             Toast.makeText(EventplanningActivity5.this,"Erfolgreich gespeichert!",Toast.LENGTH_SHORT).show();
 
-        });     //end of setOnClickListener
+        });     //end of setOnClickListener for the buttonSave5
     }           //end of onCreate
 
     //methode for datePicker
