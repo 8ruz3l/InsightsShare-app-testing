@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
@@ -17,6 +18,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,6 +27,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 
 public class EventplanningActivity5 extends AppCompatActivity {
@@ -40,6 +44,11 @@ public class EventplanningActivity5 extends AppCompatActivity {
     //variables for transfering Eventdata to DB
     EditText eventName, eventDescription, eventPlace, maxParticipants;
     Button ButtonSave;
+
+    //variables for updating existing Eventdata
+    Boolean updateExistingEvent= true; //TODO: Eventdetails gives this (as a way for Eventplanning to know if it's updating or creating an event)
+    String existingEventID="-MmYtxFroxBcTQhMYpiU"; //TODO: Eventdetails gives the parameters of the chosen Event
+
 
     //connection with DB:
     FirebaseDatabase rootNode;
@@ -76,33 +85,61 @@ public class EventplanningActivity5 extends AppCompatActivity {
         maxParticipants = findViewById(R.id.InputMaxParticipants5);
         ButtonSave= findViewById(R.id.ButtonSave5);
 
+        //TODO: fill the xml fields with the data of the existing event if (updateExistingEvent= true)
+        // this is only for new Events
         datePickerButton.setText(getTodaysDate());
 
-        //save Data in DB on Buttonclick
-        //end of onClick
+        //save/ updates Data in DB on Buttonclick
         ButtonSave.setOnClickListener(view -> {
-            rootNode= FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app/");
-            reference= rootNode.getReference().child("Event");
 
-            //get all the values of the data (input) in stings so it can be stored
-            String ValueEventId = reference.push().getKey();
-            String ValueEventName= eventName.getEditableText().toString();
-            String ValueEventDescription= eventDescription.getEditableText().toString();
-            String ValueDate= datePickerButton.getText().toString();
-            String ValueTime= timePickerButton.getText().toString();
-            String ValuePlace= eventPlace.getEditableText().toString();
-            String ValueMaxParticipants= maxParticipants.getEditableText().toString();
-            String todayStr= getTodaysDate();
-            String ValueEventCreator= "me"; //TODO:change mockdata to real automatically shown name
+            rootNode = FirebaseDatabase.getInstance();
+            reference = rootNode.getReference("Event");
 
-            //here the data is collected (to be send to the DB in the next step)
-            EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
-                    ValueEventCreator, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);//, ValuePublish);
+            //decides between cerating a new Event or updating an existing Event
+            if (updateExistingEvent= false) {
+                //get all the values of the data (input) in stings so it can be stored
+                String ValueEventId = reference.push().getKey();
+                String ValueEventName = eventName.getEditableText().toString();
+                String ValueEventDescription = eventDescription.getEditableText().toString();
+                String ValueDate = datePickerButton.getText().toString();
+                String ValueTime = timePickerButton.getText().toString();
+                String ValuePlace = eventPlace.getEditableText().toString();
+                String ValueMaxParticipants = maxParticipants.getEditableText().toString();
+                String todayStr = getTodaysDate();
+                String ValueEventCreator = "me"; //TODO:change mockdata to real automatically shown name
 
-            //data is stored in the DB
-            assert ValueEventId != null;
-            reference.child(ValueEventId).setValue(eventEntry); //PrimaryKey is ValueEventId
+                //here the data is collected (to be send to the DB in the next step)
+                EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
+                        ValueEventCreator, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);//, ValuePublish);
 
+                //data is stored in the DB
+                assert ValueEventId != null;
+                reference.child(ValueEventId).setValue(eventEntry); //PrimaryKey is ValueEventId
+            } else {
+                //update an existing Event
+                //get all the existing and new values of the eventdata in stings so it can be stored
+                String eventId = existingEventID;
+                String ValueEventName = eventName.getEditableText().toString();
+                String ValueEventDescription = eventDescription.getEditableText().toString();
+                String ValueDate = datePickerButton.getText().toString();
+                String ValueTime = timePickerButton.getText().toString();
+                String ValuePlace = eventPlace.getEditableText().toString();
+                String ValueMaxParticipants = maxParticipants.getEditableText().toString();
+
+                //put the changeable data in a Map because this is the type in which it can be stored in: reference.child().updateChildren(!!!MAP REQUIRED!!!);
+                HashMap<String, Object> EventMap= new HashMap<String, Object>();
+                EventMap.put("eventName", ValueEventName);
+                EventMap.put("eventDescription", ValueEventDescription);
+                EventMap.put("eventDate", ValueDate);
+                EventMap.put("eventTime", ValueTime);
+                EventMap.put("eventPlace", ValuePlace);
+                EventMap.put("maxParticipants", ValueMaxParticipants);
+
+                //changed data is stored in the DB
+                assert eventId != null;
+                reference=FirebaseDatabase.getInstance().getReference("Event");
+                reference.child(eventId).updateChildren(EventMap);
+            }
             //Automatically redirect user to NavigationActivity
             onBackPressed();
 

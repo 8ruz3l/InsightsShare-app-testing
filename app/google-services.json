@@ -2,6 +2,7 @@
   "project_info": {
     "project_number": "417511090643",
     "project_id": "insightsshare-1e407",
+    "firebase_url": "https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app/",
     "storage_bucket": "insightsshare-1e407.appspot.com"
   },
   "client": [
