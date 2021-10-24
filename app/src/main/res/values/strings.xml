@@ -20,6 +20,7 @@
 
     <!-- Event Details -->
     <string name="participants_list">Event Participants</string>
+    <string name="leave_button">Leave Event</string>
     <string name="join_button">Join</string>
 
     <string name="title_activity_eventplanning5">EventplanningActivity5</string>

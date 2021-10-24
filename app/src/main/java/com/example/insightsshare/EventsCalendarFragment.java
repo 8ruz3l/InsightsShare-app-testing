@@ -61,9 +61,8 @@ public class EventsCalendarFragment extends Fragment {
                 eventList.clear();
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    EventItem eventItem = dataSnapshot.getValue(EventItem.class);
-
                     if (dataSnapshot.child("participantsList").hasChild(user.getUid())) {
+                        EventItem eventItem = dataSnapshot.getValue(EventItem.class);
                         eventList.add(eventItem);
                     }
                 }

@@ -2,10 +2,10 @@ package com.example.insightsshare;
 
 public class UserClass {
 
-    String username, email, passwort;
+    public String username, email, passwort;
 
     public UserClass(){
-
+        // Required empty public constructor
     }
 
     public UserClass (String username, String email, String passwort){
