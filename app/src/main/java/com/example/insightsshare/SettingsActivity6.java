@@ -21,12 +21,7 @@ public class SettingsActivity6 extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.toolbar));
         //Toolbar back button
         backButton = (ImageView) findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        backButton.setOnClickListener( view -> onBackPressed());
     }
 
     public void logout(View view) {
