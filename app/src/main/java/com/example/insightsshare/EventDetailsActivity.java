@@ -30,6 +30,7 @@ public class EventDetailsActivity extends AppCompatActivity {
     // Database elements
     FirebaseDatabase database;
     DatabaseReference eventRef, userRef, participantsListRef;
+    ValueEventListener eventListener;
 
     // View elements
     String eventId;
@@ -85,7 +86,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         bottomContainer = findViewById(R.id.bottom_container);
         joinButton = findViewById(R.id.join_button);
 
-        eventRef.addValueEventListener(new ValueEventListener() {
+        eventListener = eventRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 EventItem eventItem = snapshot.getValue(EventItem.class);
@@ -172,7 +173,11 @@ public class EventDetailsActivity extends AppCompatActivity {
         });
 
         deleteButton.setOnClickListener(view -> {
-            // TODO
+            Intent i = new Intent(EventDetailsActivity.this, NavigationActivity.class);
+            startActivity(i);
+            finish();
+            eventRef.removeEventListener(eventListener);
+            eventRef.removeValue();
         });
     }
 
