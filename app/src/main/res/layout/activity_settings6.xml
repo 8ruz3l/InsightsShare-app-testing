@@ -38,7 +38,7 @@
         </RelativeLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
-  
+
     <ScrollView
         android:id="@+id/scrollView6"
         android:layout_width="match_parent"
@@ -51,113 +51,94 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-          
-        <TextView
-            android:id="@+id/SettingsTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="60dp"
-            android:text="@string/settings6_title"
-            android:textSize="24sp" />
 
-        <ImageView
-            android:id="@+id/ProfileImage6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="40dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            <ImageView
+                android:id="@+id/ProfileImage6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="28dp"
+                android:src="@mipmap/ic_launcher"
+                tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/OutputMailAdress6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/eventplanning5_creator" />
+            <TextView
+                android:id="@+id/OutputMailAdress6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/eventplanning5_creator" />
 
-        <TextView
-            android:id="@+id/OutputProfilDescription6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/settings6_biography" />
+            <View
+                android:id="@+id/divider6_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="?android:attr/listDivider" />
 
-        <View
-            android:id="@+id/divider6_1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="24dp"
-            android:background="?android:attr/listDivider" />
+            <TextView
+                android:id="@+id/LabelChangeProfil6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/settings6_label_profil_edit" />
 
-        <TextView
-            android:id="@+id/LabelChangeProfil6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/settings6_label_profil_edit" />
+            <View
+                android:id="@+id/divider6_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="?android:attr/listDivider" />
 
-        <View
-            android:id="@+id/divider6_2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="24dp"
-            android:background="?android:attr/listDivider" />
+            <Switch
+                android:id="@+id/SwitchModeDarkLight6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/settings6_label_lightmode" />
 
-        <Switch
-            android:id="@+id/SwitchModeDarkLight6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/settings6_label_lightmode" />
+            <View
+                android:id="@+id/divider6_3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="?android:attr/listDivider" />
 
-        <View
-            android:id="@+id/divider6_3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="24dp"
-            android:background="?android:attr/listDivider" />
+            <TextView
+                android:id="@+id/LabelChangeLanguage6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/settings6_label_language" />
 
-        <TextView
-            android:id="@+id/LabelChangeLanguage6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/settings6_label_language" />
+            <View
+                android:id="@+id/divider6_4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="?android:attr/listDivider" />
 
-        <View
-            android:id="@+id/divider6_4"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="24dp"
-            android:background="?android:attr/listDivider" />
-
-        <Button
-            android:id="@+id/buttonLogOut6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="28dp"
-            android:onClick="logout"
-            android:backgroundTint="#9c1c4d"
-            android:text="@string/settings6_button_sign_out" />
+            <Button
+                android:id="@+id/buttonLogOut6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:backgroundTint="#9c1c4d"
+                android:onClick="logout"
+                android:text="@string/settings6_button_sign_out" />
 
         </LinearLayout>
 

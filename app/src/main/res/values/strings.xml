@@ -67,13 +67,10 @@
 
     <!-- Strings of Activity Settings-->
     //label
-    <string name="settings6_title">Settings</string>
-    <string name="settings6_label_profil_edit">edit profile</string>
-    <string name="settings6_label_language">edit language</string>
-    <string name="settings6_label_lightmode">darkmode</string>
+    <string name="settings6_label_profil_edit">Edit Profile</string>
+    <string name="settings6_label_language">Language</string>
+    <string name="settings6_label_lightmode">Darkmode</string>
     //button
-    <string name="settings6_button_sign_out">sign out</string>
-    //biography from DB
-    <string name="settings6_biography">**bio**</string>//TODO: get from DB
+    <string name="settings6_button_sign_out">Sign Out</string>
 
 </resources>
