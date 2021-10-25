@@ -3,6 +3,7 @@ package com.example.insightsshare;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,8 +20,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -53,9 +52,8 @@ public class EventplanningActivity5 extends AppCompatActivity {
     Button ButtonSave;
 
     //variables for updating existing Eventdata
-    Boolean updateExistingEvent= true; //TODO: Eventdetails gives this (as a way for Eventplanning to know if it's updating or creating an event)
-    String existingEventID="-MmYtxFroxBcTQhMYpiU"; //TODO: Eventdetails gives the parameters of the chosen Event
-
+    Boolean updateExistingEvent = false; // False as default
+    String existingEventID;
 
     //connection with DB:
     FirebaseDatabase rootNode;
@@ -70,8 +68,14 @@ public class EventplanningActivity5 extends AppCompatActivity {
         // Set up the toolbar
         setSupportActionBar(findViewById(R.id.toolbar));
         //Toolbar back button
-        backButton = (ImageView) findViewById(R.id.backButton);
+        backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener( view -> onBackPressed());
+
+        // Determine between event creation or edit
+        Intent i = getIntent();
+        Bundle extras = i.getExtras();
+        updateExistingEvent = extras.getBoolean("updateExistingEvent");
+        existingEventID = extras.getString("existingEventID");
 
         //Methode to change Date with the Datepicker
         initDatePicker();
@@ -80,7 +84,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        rootNode = FirebaseDatabase.getInstance();
+        rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
         userReference = rootNode.getReference().child("User").child(user.getUid());
 
         userReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -97,7 +101,6 @@ public class EventplanningActivity5 extends AppCompatActivity {
         });
 
 
-
         //Hooks to the xml Elements
         eventName= findViewById(R.id.InputEventName5);
         eventDescription= findViewById(R.id.InputDescription5);
@@ -106,7 +109,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
         eventPlace= findViewById(R.id.InputLocation5);
         maxParticipants = findViewById(R.id.InputMaxParticipants5);
         ButtonSave= findViewById(R.id.ButtonSave5);
-        eventCreator= (TextView)this.findViewById(R.id.OutputReferent5);
+        eventCreator= this.findViewById(R.id.OutputReferent5);
 
 
         //fill the xml fields with the data of the existing event if (updateExistingEvent= true)
@@ -114,7 +117,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
             // this is only for new Events
             datePickerButton.setText(getTodaysDate());
         } else {
-            rootNode = FirebaseDatabase.getInstance();
+            rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
             reference = rootNode.getReference().child("Event").child(existingEventID);
 
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -141,8 +144,8 @@ public class EventplanningActivity5 extends AppCompatActivity {
         //save/ updates Data in DB on Buttonclick
         ButtonSave.setOnClickListener(view -> {
 
-            rootNode = FirebaseDatabase.getInstance();
-            reference = rootNode.getReference("Event");
+            rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
+            reference = rootNode.getReference().child("Event");
 
             //decides between creating a new Event or updating an existing Event
             if (updateExistingEvent == false) {
@@ -164,6 +167,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 //data is stored in the DB
                 assert ValueEventId != null;
                 reference.child(ValueEventId).setValue(eventEntry); //PrimaryKey is ValueEventId
+                reference.child(ValueEventId).child("participantsList").child(user.getUid()).setValue(true); // Join the event automatically
             } else {
                 //update an existing Event
                 //get all the existing and new values of the eventdata in stings so it can be stored
@@ -188,13 +192,10 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
                 //changed data is stored in the DB
                 assert eventId != null;
-                reference=FirebaseDatabase.getInstance().getReference("Event");
                 reference.child(eventId).updateChildren(EventMap);
             }
-            // to reset to default state
-            updateExistingEvent= false;
 
-            //Automatically redirect user to NavigationActivity
+            //Automatically redirect user to NavigationActivity or EventDetailsActivity
             onBackPressed();
 
             //display a little success-message, so that the user knows the data was saved

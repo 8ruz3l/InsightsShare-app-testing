@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,7 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class EventDetailsActivity extends AppCompatActivity {
-
     // Toolbar elements
     ImageView backButton;
 
@@ -36,8 +35,8 @@ public class EventDetailsActivity extends AppCompatActivity {
     String eventId;
     TextView eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime, eventDescription;
     RecyclerView participantsView;
-    LinearLayout bottomContainer, participantsInfo;
-    Button joinButton, leaveButton;
+    LinearLayout bottomContainer, participantsInfo, eventControl;
+    Button joinButton, leaveButton, editButton, deleteButton;
 
     // Get current user
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -74,7 +73,13 @@ public class EventDetailsActivity extends AppCompatActivity {
         participantsView = findViewById(R.id.participants_list);
         participantsView.setLayoutManager(new LinearLayoutManager(this));
 
+        // Participant view
         leaveButton = findViewById(R.id.leave_button);
+
+        // Creator view
+        eventControl = findViewById(R.id.event_control);
+        editButton = findViewById(R.id.edit_button);
+        deleteButton = findViewById(R.id.delete_button);
 
         // Bottom container on non participant view
         bottomContainer = findViewById(R.id.bottom_container);
@@ -100,14 +105,29 @@ public class EventDetailsActivity extends AppCompatActivity {
             }
         });
 
+        // Determine the view elements to display based on user's role (Non-Participant/Participant/Creator)
         eventRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.child("participantsList").hasChild(user.getUid())) {
-                    setParticipantView();
-                } else {
-                    setNonParticipantView();
-                }
+            public void onDataChange(@NonNull DataSnapshot listSnapshot) {
+
+                userRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot userSnapshot) {
+                        UserClass userClass = userSnapshot.getValue(UserClass.class);
+                        if (userClass.getUsername().equals(eventCreator.getText().toString())) {
+                            setCreatorView();
+                        } else if (listSnapshot.child("participantsList").hasChild(user.getUid())){
+                            setParticipantView();
+                        } else {
+                            setNonParticipantView();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
 
             @Override
@@ -115,12 +135,14 @@ public class EventDetailsActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
 
-    public void setParticipantView() {
-
+    private void setParticipantView() {
         participantsInfo.setVisibility(View.VISIBLE);
+        leaveButton.setVisibility(View.VISIBLE);
+        eventControl.setVisibility(View.GONE);
         bottomContainer.setVisibility(View.GONE);
 
         generateParticipantsList();
@@ -131,19 +153,43 @@ public class EventDetailsActivity extends AppCompatActivity {
     }
 
 
-    public void setNonParticipantView() {
+    private void setCreatorView() {
+        participantsInfo.setVisibility(View.VISIBLE);
+        leaveButton.setVisibility(View.GONE);
+        eventControl.setVisibility(View.VISIBLE);
+        bottomContainer.setVisibility(View.GONE);
 
+        generateParticipantsList();
+
+        editButton.setOnClickListener(view -> {
+            Intent i = new Intent(EventDetailsActivity.this, EventplanningActivity5.class);
+            Bundle extras = new Bundle();
+            extras.putBoolean("updateExistingEvent", true);
+            extras.putString("existingEventID", eventId);
+            i.putExtras(extras);
+
+            startActivity(i);
+        });
+
+        deleteButton.setOnClickListener(view -> {
+            // TODO
+        });
+    }
+
+
+    private void setNonParticipantView() {
         participantsInfo.setVisibility(View.GONE);
+        leaveButton.setVisibility(View.GONE);
+        eventControl.setVisibility(View.GONE);
         bottomContainer.setVisibility(View.VISIBLE);
 
         joinButton.setOnClickListener(view -> {
-            eventRef.child("participantsList").child(user.getUid()).setValue(true);
+            eventRef.child("participantsList").child(user.getUid()).setValue(false);
         });
     }
 
 
     public void generateParticipantsList() {
-
         ArrayList<UserClass> participantsList = new ArrayList<>();
         ParticipantsListAdapter participantsListAdapter = new ParticipantsListAdapter(this, participantsList);
         participantsView.setAdapter(participantsListAdapter);
