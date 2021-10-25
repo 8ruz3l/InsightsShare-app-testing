@@ -201,7 +201,7 @@
                 android:id="@+id/participants_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
@@ -213,7 +213,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -222,13 +223,13 @@
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 
-                </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/participants_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/participants_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp" />
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
