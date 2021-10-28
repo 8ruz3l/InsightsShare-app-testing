@@ -12,13 +12,13 @@
         android:layout_height="48dp"
         android:layout_marginBottom="164dp"
         android:backgroundTint="#9C1C4D"
-        android:text="Anmelden"
+        android:text="@string/button_sign_in"
         android:visibility="visible"
         app:iconTint="#9C1C4D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Anmelden" />
+        tools:text="@string/button_sign_in" />
 
     <EditText
         android:id="@+id/inputEmail2"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Hast du schon einen Account?" />
+            android:text="@string/main_no_account" />
 
         <Button
             android:id="@+id/backToAnmButton"
@@ -55,7 +55,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00FFFFFF"
-            android:text="Registrieren"
+            android:text="@string/button_register"
             android:textAlignment="center"
             android:textColor="#9C1C4D"
             tools:ignore="TouchTargetSizeCheck" />
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="Anmelden"
+        android:text="@string/main_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Passwort"
+        android:text="@string/label_password"
         android:textColor="#9C1C4D"
         app:layout_constraintStart_toStartOf="@+id/anmeldeButton"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail2" />
@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Email"
+        android:text="@string/label_email"
         android:textColor="#9C1C4D"
         app:layout_constraintStart_toStartOf="@+id/anmeldeButton"
         app:layout_constraintTop_toBottomOf="@+id/anmeldeLabel" />
@@ -100,7 +100,7 @@
         android:layout_marginTop="8dp"
         android:height="48dp"
         android:ems="10"
-        android:hint="@string/password_label_hint"
+        android:hint="@string/main_password_label_hint"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/anmeldeButton"
         app:layout_constraintStart_toStartOf="@+id/anmeldeButton"

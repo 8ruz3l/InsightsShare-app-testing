@@ -27,7 +27,7 @@
         android:layout_marginTop="8dp"
         android:height="48dp"
         android:ems="10"
-        android:hint="@string/password_label_hint"
+        android:hint="@string/registr_password_label_hint"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/registerButton"
         app:layout_constraintHorizontal_bias="0.0"
@@ -56,20 +56,20 @@
         android:layout_height="48dp"
         android:layout_marginBottom="164dp"
         android:backgroundTint="#9C1C4D"
-        android:text="Weiter"
+        android:text="@string/registr_button_continue"
         android:visibility="visible"
         app:iconTint="#9C1C4D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Weiter" />
+        tools:text="@string/registr_button_continue" />
 
     <TextView
         android:id="@+id/registerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
-        android:text="Registrieren"
+        android:text="@string/registr_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Email"
+        android:text="@string/label_email"
         android:textColor="#9C1C4D"
         app:layout_constraintStart_toStartOf="@+id/registerButton"
         app:layout_constraintTop_toBottomOf="@+id/registerLabel" />
@@ -91,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Passwort"
+        android:text="@string/label_password"
         android:textColor="#9C1C4D"
         app:layout_constraintStart_toStartOf="@+id/registerButton"
         app:layout_constraintTop_toBottomOf="@+id/inputUsername" />
@@ -101,7 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Nutzername"
+        android:text="@string/registr_label_username"
         android:textColor="#9C1C4D"
         app:layout_constraintStart_toStartOf="@+id/registerButton"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
@@ -111,7 +111,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Ich stimme den Datenschutzbestimmungen und der Vararbeitung meiner Daten zu."
+        android:text="@string/registr_datenSchutzErklaerung"
         app:layout_constraintEnd_toEndOf="@+id/registerButton"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/registerButton"
@@ -131,7 +131,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Hast du schon einen Account?" />
+            android:text="@string/registr_already_account" />
 
         <Button
             android:id="@+id/backToAnmButton"
@@ -139,7 +139,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#00FFFFFF"
-            android:text="Anmelden"
+            android:text="@string/button_sign_in"
             android:textAlignment="center"
             android:textColor="#9C1C4D" />
     </LinearLayout>

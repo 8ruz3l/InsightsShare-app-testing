@@ -38,9 +38,29 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_test">TestActivity</string>
 
-    <string name="password_label_hint">password</string>
-    <string name="username_label_hint">Your Username</string>
-    <string name="email_label_hint">Your E-Mail</string>
+    <!-- Strings of Activity main-->
+    <string name="main_title">Sign-in</string>
+    <string name="main_no_account">Don\'t you have an account?</string>
+    <string name="main_password_label_hint">What is your password?</string>
+
+    <!-- Strings of Activity main and Registr-->
+    //labels
+    <string name="label_password">Password</string>
+    <string name="label_email">Email</string>
+    //hints
+    <string name="username_label_hint">Choose your Username.</string>
+    <string name="email_label_hint">What is your email address?</string>
+    //button
+    <string name="button_sign_in">sign-in</string>
+    <string name="button_register">register</string>
+
+    <!-- Strings of Activity Registr-->
+    <string name="registr_title">Sign-up</string>
+    <string name="registr_already_account">Do you have already an account?</string>
+    <string name="registr_label_username">Username</string>
+    <string name="registr_datenSchutzErklaerung">I confirm the privacy policy agreement of InsightShare.</string>
+    <string name="registr_button_continue">Continue</string>
+    <string name="registr_password_label_hint">Choose a password.</string>
 
     <!-- Strings of Activity Eventplanning5-->
     //labels
