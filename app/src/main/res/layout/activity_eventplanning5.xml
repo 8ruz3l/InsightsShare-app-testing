@@ -55,16 +55,6 @@
             android:outlineProvider="bounds">
 
             <TextView
-                android:id="@+id/TitleEventplanning5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="28dp"
-                android:text="@string/eventplanning5_title"
-                android:textSize="24sp" />
-
-            <TextView
                 android:id="@+id/LabelEventName5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
