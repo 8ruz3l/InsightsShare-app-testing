@@ -56,7 +56,7 @@
         android:layout_height="48dp"
         android:layout_marginBottom="164dp"
         android:backgroundTint="#9C1C4D"
-        android:text="Weiter"
+        android:text="@string/registr_button_continue"
         android:visibility="visible"
         app:iconTint="#9C1C4D"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Email"
+        android:text="@string/label_email"
         android:textColor="#9C1C4D"
         app:layout_constraintStart_toStartOf="@+id/registerButton"
         app:layout_constraintTop_toBottomOf="@+id/registerLabel" />
