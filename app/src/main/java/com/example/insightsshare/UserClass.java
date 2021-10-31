@@ -2,16 +2,15 @@ package com.example.insightsshare;
 
 public class UserClass {
 
-    String username, email, passwort;
+    String username, email;
 
     public UserClass(){
 
     }
 
-    public UserClass (String username, String email, String passwort){
+    public UserClass (String username, String email){
         this.username = username;
         this.email = email;
-        this.passwort = passwort;
     }
 
     public String getUsername() {
@@ -28,14 +27,6 @@ public class UserClass {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPasswort() {
-        return passwort;
-    }
-
-    public void setPasswort(String passwort) {
-        this.passwort = passwort;
     }
 
 }

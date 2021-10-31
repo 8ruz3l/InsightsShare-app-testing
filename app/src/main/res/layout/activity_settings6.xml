@@ -156,7 +156,6 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="28dp"
             android:onClick="logout"
-            android:text="Abmelden"
             android:backgroundTint="#9c1c4d"
             android:text="@string/settings6_button_sign_out" />
 
