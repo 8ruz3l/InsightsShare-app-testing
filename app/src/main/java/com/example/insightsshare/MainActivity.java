@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         loginButton = (Button) findViewById(R.id.anmeldeButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 String email = loginEmail.getText().toString().trim();
@@ -55,18 +54,23 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
+               //prüfen ob Email verifiziert fehlt noch
+               // if (fAuth.getCurrentUser().isEmailVerified()) {
+                    fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
+                            } else {
+                                Toast.makeText(MainActivity.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else{
-                            Toast.makeText(MainActivity.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                    });
+                //}
+             /* else{
+                    Toast.makeText(MainActivity.this, "Email not verified yet.", Toast.LENGTH_SHORT).show();
+                }*/
             }
         });
 

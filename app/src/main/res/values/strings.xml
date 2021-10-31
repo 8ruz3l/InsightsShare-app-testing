@@ -28,9 +28,37 @@
 
     <string name="title_activity_eventplanning5">EventplanningActivity5</string>
 
+    <string name="verification_label">Wait for email verification</string>
+    <string name="changeData_button">Change Data</string>
+    <string name="verify_button">Email verified?</string>
+
     <string name="password_label_hint">password</string>
     <string name="username_label_hint">Your Username</string>
     <string name="email_label_hint">Your E-Mail</string>
+
+    <!-- Strings of Activity main-->
+    <string name="main_title">Sign-in</string>
+    <string name="main_no_account">Don\'t you have an account?</string>
+    <string name="main_password_label_hint">What is your password?</string>
+
+    <!-- Strings of Activity main and Registr-->
+    //labels
+    <string name="label_password">Password</string>
+    <string name="label_email">Email</string>
+    //hints
+    <string name="username_label_hint">Choose your Username.</string>
+    <string name="email_label_hint">What is your email address?</string>
+    //button
+    <string name="button_sign_in">sign-in</string>
+    <string name="button_register">register</string>
+
+    <!-- Strings of Activity Registr-->
+    <string name="registr_title">Sign-up</string>
+    <string name="registr_already_account">Do you have already an account?</string>
+    <string name="registr_label_username">Username</string>
+    <string name="registr_datenSchutzErklaerung">I confirm the privacy policy agreement of InsightShare.</string>
+    <string name="registr_button_continue">Continue</string>
+    <string name="registr_password_label_hint">Choose a password.</string>
 
     <!-- Strings of Activity Eventplanning5-->
     //labels
@@ -53,7 +81,8 @@
     <string name="eventplanning5_date">JAN 01 2022</string>
     <string name="eventplanning5_time">00:00 AM</string>
     //automaticly shown name of the user
-    <string name="eventplanning5_creator">**Creator**</string> //TODO: globalVariable.toString()
+    <string name="eventplanning5_creator">**Creator**</string>
+    //TODO: globalVariable.toString()
 
     <!-- Strings of Activity Settings-->
     //label
@@ -61,6 +90,12 @@
     <string name="settings6_label_language">Language</string>
     <string name="settings6_label_lightmode">Darkmode</string>
     //button
+
+    <string name="settings6_button_sign_out">sign out</string>
+    //biography from DB
+    <string name="settings6_biography">**bio**</string>
+    <string name="title_activity_verific">VerificActivity</string>//TODO: get from DB
+
     <string name="settings6_button_sign_out">Sign Out</string>
 
     <!-- Toast message -->

@@ -3,6 +3,8 @@ package com.example.insightsshare;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
@@ -71,6 +74,9 @@ public class RegistrActivity extends AppCompatActivity /*implements OnClickListe
                     regPasswort.setError("Password is required");
                     return;
                 }
+                if(password.length() < 6){
+                    regPasswort.setError("Password has to contain 6 or more characters");
+                }
 
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -92,21 +98,16 @@ public class RegistrActivity extends AppCompatActivity /*implements OnClickListe
                                 }
                             });
 
-                            Toast.makeText(RegistrActivity.this, "User Created", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
-
-                            rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app/");
-                            reference = rootNode.getReference("User");
-
-                            UserClass userInfo = new UserClass(username, email, password);
-
-                            reference.child(user.getUid()).setValue(userInfo);
+                            VerificActivity.username = username;
+                            VerificActivity.email = email;
                         }
                         else{
                             Toast.makeText(RegistrActivity.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+                Intent i = new Intent(RegistrActivity.this, VerificActivity.class);
+                startActivity(i);
             }
         });
       
