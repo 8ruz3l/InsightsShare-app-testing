@@ -100,7 +100,6 @@ public class RegistrActivity extends AppCompatActivity /*implements OnClickListe
 
                             VerificActivity.username = username;
                             VerificActivity.email = email;
-
                         }
                         else{
                             Toast.makeText(RegistrActivity.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

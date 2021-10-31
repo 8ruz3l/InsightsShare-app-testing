@@ -5,6 +5,7 @@
     <string name="title_home_toolbar">Upcoming Events</string>
     <string name="title_my_event_toolbar">Events Calendar</string>
     <string name="title_create_event_toolbar">Plan an Event</string>
+    <string name="title_edit_event_toolbar">Edit My Event</string>
     <string name="title_setting_toolbar">Setting</string>
     <string name="title_event_details">Event Details</string>
 
@@ -19,9 +20,14 @@
     <string name="event_creation_date">on</string>
 
     <!-- Event Details -->
+    <string name="participants_list">Event Participants</string>
+    <string name="leave_button">Leave Event</string>
     <string name="join_button">Join</string>
+    <string name="edit_button">Edit Event</string>
+    <string name="delete_button">Cancel Event</string>
 
     <string name="title_activity_eventplanning5">EventplanningActivity5</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -39,6 +45,31 @@
     <string name="password_label_hint">password</string>
     <string name="username_label_hint">Your Username</string>
     <string name="email_label_hint">Your E-Mail</string>
+
+    <!-- Strings of Activity main-->
+    <string name="main_title">Sign-in</string>
+    <string name="main_no_account">Don\'t you have an account?</string>
+    <string name="main_password_label_hint">What is your password?</string>
+
+    <!-- Strings of Activity main and Registr-->
+    //labels
+    <string name="label_password">Password</string>
+    <string name="label_email">Email</string>
+    //hints
+    <string name="username_label_hint">Choose your Username.</string>
+    <string name="email_label_hint">What is your email address?</string>
+    //button
+    <string name="button_sign_in">sign-in</string>
+    <string name="button_register">register</string>
+
+    <!-- Strings of Activity Registr-->
+    <string name="registr_title">Sign-up</string>
+    <string name="registr_already_account">Do you have already an account?</string>
+    <string name="registr_label_username">Username</string>
+    <string name="registr_datenSchutzErklaerung">I confirm the privacy policy agreement of InsightShare.</string>
+    <string name="registr_button_continue">Continue</string>
+    <string name="registr_password_label_hint">Choose a password.</string>
+
     <!-- Strings of Activity Eventplanning5-->
     //labels
     <string name="eventplanning5_title">Plan your event!</string>
@@ -65,14 +96,16 @@
 
     <!-- Strings of Activity Settings-->
     //label
-    <string name="settings6_title">Settings</string>
-    <string name="settings6_label_profil_edit">edit profile</string>
-    <string name="settings6_label_language">edit language</string>
-    <string name="settings6_label_lightmode">darkmode</string>
+    <string name="settings6_label_profil_edit">Edit Profile</string>
+    <string name="settings6_label_language">Language</string>
+    <string name="settings6_label_lightmode">Darkmode</string>
     //button
+
     <string name="settings6_button_sign_out">sign out</string>
     //biography from DB
     <string name="settings6_biography">**bio**</string>
     <string name="title_activity_verific">VerificActivity</string>//TODO: get from DB
+
+    <string name="settings6_button_sign_out">Sign Out</string>
 
 </resources>
