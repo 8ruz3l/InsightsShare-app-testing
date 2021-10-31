@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -150,6 +151,7 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         leaveButton.setOnClickListener(view -> {
             eventRef.child("participantsList").child(user.getUid()).removeValue();
+            Toast.makeText(EventDetailsActivity.this,R.string.toast_event_leave,Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -168,12 +170,13 @@ public class EventDetailsActivity extends AppCompatActivity {
             extras.putBoolean("updateExistingEvent", true);
             extras.putString("existingEventID", eventId);
             i.putExtras(extras);
-
+            Toast.makeText(EventDetailsActivity.this,R.string.toast_event_updated,Toast.LENGTH_SHORT).show();
             startActivity(i);
         });
 
         deleteButton.setOnClickListener(view -> {
             Intent i = new Intent(EventDetailsActivity.this, NavigationActivity.class);
+            Toast.makeText(EventDetailsActivity.this,R.string.toast_event_deleted,Toast.LENGTH_SHORT).show();
             startActivity(i);
             finish();
             eventRef.removeEventListener(eventListener);
@@ -190,6 +193,7 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         joinButton.setOnClickListener(view -> {
             eventRef.child("participantsList").child(user.getUid()).setValue(false);
+            Toast.makeText(EventDetailsActivity.this,R.string.toast_event_participate,Toast.LENGTH_SHORT).show();
         });
     }
 
