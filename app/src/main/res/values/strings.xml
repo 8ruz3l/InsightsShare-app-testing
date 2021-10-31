@@ -28,16 +28,6 @@
 
     <string name="title_activity_eventplanning5">EventplanningActivity5</string>
 
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="title_activity_test">TestActivity</string>
-
     <string name="verification_label">Wait for email verification</string>
     <string name="changeData_button">Change Data</string>
     <string name="verify_button">Email verified?</string>
@@ -107,5 +97,16 @@
     <string name="title_activity_verific">VerificActivity</string>//TODO: get from DB
 
     <string name="settings6_button_sign_out">Sign Out</string>
+
+    <!-- Toast message -->
+    <string name="toast_event_created">Event successfully Created</string>
+    <string name="toast_event_updated">Event successfully Updated</string>
+    <string name="toast_event_deleted">Event successfully deleted</string>
+    <string name="toast_event_participate">You joined the event!</string>
+    <string name="toast_event_leave">You left the event</string>
+
+
+
+
 
 </resources>
