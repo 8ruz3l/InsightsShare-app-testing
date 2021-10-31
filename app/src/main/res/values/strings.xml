@@ -32,10 +32,6 @@
     <string name="changeData_button">Change Data</string>
     <string name="verify_button">Email verified?</string>
 
-    <string name="password_label_hint">password</string>
-    <string name="username_label_hint">Your Username</string>
-    <string name="email_label_hint">Your E-Mail</string>
-
     <!-- Strings of Activity main-->
     <string name="main_title">Sign-in</string>
     <string name="main_no_account">Don\'t you have an account?</string>
@@ -91,7 +87,6 @@
     <string name="settings6_label_lightmode">Darkmode</string>
     //button
 
-    <string name="settings6_button_sign_out">sign out</string>
     //biography from DB
     <string name="settings6_biography">**bio**</string>
     <string name="title_activity_verific">VerificActivity</string>//TODO: get from DB
@@ -99,8 +94,8 @@
     <string name="settings6_button_sign_out">Sign Out</string>
 
     <!-- Toast message -->
-    <string name="toast_event_created">Event successfully Created</string>
-    <string name="toast_event_updated">Event successfully Updated</string>
+    <string name="toast_event_created">Event successfully created</string>
+    <string name="toast_event_updated">Event successfully updated</string>
     <string name="toast_event_deleted">Event successfully deleted</string>
     <string name="toast_event_participate">You joined the event!</string>
     <string name="toast_event_leave">You left the event</string>

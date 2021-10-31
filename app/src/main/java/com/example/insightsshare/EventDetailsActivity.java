@@ -170,13 +170,15 @@ public class EventDetailsActivity extends AppCompatActivity {
             extras.putBoolean("updateExistingEvent", true);
             extras.putString("existingEventID", eventId);
             i.putExtras(extras);
-            Toast.makeText(EventDetailsActivity.this,R.string.toast_event_updated,Toast.LENGTH_SHORT).show();
             startActivity(i);
         });
 
         deleteButton.setOnClickListener(view -> {
             Intent i = new Intent(EventDetailsActivity.this, NavigationActivity.class);
-            Toast.makeText(EventDetailsActivity.this,R.string.toast_event_deleted,Toast.LENGTH_SHORT).show();
+
+        //  following line not implemented due to bugs
+        //  Toast.makeText(EventDetailsActivity.this,R.string.toast_event_deleted,Toast.LENGTH_SHORT).show();
+
             startActivity(i);
             finish();
             eventRef.removeEventListener(eventListener);

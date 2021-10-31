@@ -199,7 +199,12 @@ public class EventplanningActivity5 extends AppCompatActivity {
             onBackPressed();
 
             //display a little success-message, so that the user knows the data was saved
-            Toast.makeText(EventplanningActivity5.this,R.string.toast_event_created,Toast.LENGTH_SHORT).show();
+            if(updateExistingEvent) {
+                Toast.makeText(EventplanningActivity5.this, R.string.toast_event_updated, Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(EventplanningActivity5.this, R.string.toast_event_created, Toast.LENGTH_SHORT).show();
+            }
 
         });     //end of setOnClickListener for the buttonSave5
     }           //end of onCreate
