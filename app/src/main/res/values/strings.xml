@@ -38,6 +38,14 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_test">TestActivity</string>
 
+    <string name="verification_label">Wait for email verification</string>
+    <string name="changeData_button">Change Data</string>
+    <string name="verify_button">Email verified?</string>
+
+    <string name="password_label_hint">password</string>
+    <string name="username_label_hint">Your Username</string>
+    <string name="email_label_hint">Your E-Mail</string>
+
     <!-- Strings of Activity main-->
     <string name="main_title">Sign-in</string>
     <string name="main_no_account">Don\'t you have an account?</string>
@@ -83,7 +91,8 @@
     <string name="eventplanning5_date">JAN 01 2022</string>
     <string name="eventplanning5_time">00:00 AM</string>
     //automaticly shown name of the user
-    <string name="eventplanning5_creator">**Creator**</string> //TODO: globalVariable.toString()
+    <string name="eventplanning5_creator">**Creator**</string>
+    //TODO: globalVariable.toString()
 
     <!-- Strings of Activity Settings-->
     //label
@@ -91,6 +100,12 @@
     <string name="settings6_label_language">Language</string>
     <string name="settings6_label_lightmode">Darkmode</string>
     //button
+
+    <string name="settings6_button_sign_out">sign out</string>
+    //biography from DB
+    <string name="settings6_biography">**bio**</string>
+    <string name="title_activity_verific">VerificActivity</string>//TODO: get from DB
+
     <string name="settings6_button_sign_out">Sign Out</string>
 
 </resources>
