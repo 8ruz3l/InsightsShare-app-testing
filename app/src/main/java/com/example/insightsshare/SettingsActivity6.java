@@ -23,6 +23,7 @@ public class SettingsActivity6 extends AppCompatActivity {
 
     // View elements
     TextView username;
+    TextView bio;
 
     // Database elements
     FirebaseDatabase database;
@@ -48,12 +49,15 @@ public class SettingsActivity6 extends AppCompatActivity {
 
         username = findViewById(R.id.OutputMailAdress6);
 
+        bio =findViewById(R.id.OutputBiography);
+
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserClass userClass = snapshot.getValue(UserClass.class);
 
                 username.setText(userClass.getUsername());
+                bio.setText(userClass.getBio());
             }
 
             @Override

@@ -85,7 +85,7 @@
 
     <!-- Strings of Activity Settings-->
     //label
-    <string name="settings6_label_profil_edit">Edit Profile</string>
+    <string name="settings6_label_profil_edit">Edit profile</string>
     <string name="settings6_label_language">Language</string>
     <string name="settings6_label_lightmode">Darkmode</string>
     //button
@@ -95,6 +95,10 @@
     <string name="title_activity_verific">VerificActivity</string>//TODO: get from DB
 
     <string name="settings6_button_sign_out">Sign Out</string>
+
+    <!-- Strings of Activity EditUserProfile-->
+    //labels
+    <string name="edit_user_profile_title">Edit profile</string>
 
     <!-- Toast message -->
     <string name="toast_event_created">Event successfully created</string>

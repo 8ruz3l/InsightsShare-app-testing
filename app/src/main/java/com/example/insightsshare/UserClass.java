@@ -2,15 +2,16 @@ package com.example.insightsshare;
 
 public class UserClass {
 
-    String username, email;
+    String username, email, bio;
 
     public UserClass(){
         // Required empty public constructor
     }
 
-    public UserClass (String username, String email){
+    public UserClass (String username, String email, String bio){
         this.username = username;
         this.email = email;
+        this.bio = bio;
     }
 
     public String getUsername() {
@@ -29,4 +30,7 @@ public class UserClass {
         this.email = email;
     }
 
+    public String getBio() { return bio; }
+
+    public void setBio(String bio) { this.bio = bio; }
 }
