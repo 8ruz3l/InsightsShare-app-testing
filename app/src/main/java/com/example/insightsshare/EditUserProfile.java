@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -83,5 +84,16 @@ public class EditUserProfile extends AppCompatActivity {
 
             }
         }); // end of Listener
+
+        //save/ update changed data
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               //put data into strings for them to be stored
+               String valueProfileName= userName.getEditableText().toString();
+               String valueBio= bio.getEditableText().toString();
+
+            }
+        })
     }
 }

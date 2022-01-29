@@ -90,8 +90,8 @@
                 android:layout_marginTop="24dp"
                 android:background="?android:attr/listDivider" />
 
-            <TextView
-                android:id="@+id/LabelChangeProfil6"
+            <Button
+                android:id="@+id/ButtonChangeProfil6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"

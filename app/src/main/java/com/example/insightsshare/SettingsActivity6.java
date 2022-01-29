@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +25,8 @@ public class SettingsActivity6 extends AppCompatActivity {
     // View elements
     TextView username;
     TextView bio;
+    //Navigation to screen EditUserProfile
+    Button navigation;
 
     // Database elements
     FirebaseDatabase database;
@@ -51,6 +54,15 @@ public class SettingsActivity6 extends AppCompatActivity {
 
         bio =findViewById(R.id.OutputBiography);
 
+        navigation= findViewById(R.id.ButtonChangeProfil6);
+
+        navigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openProfile();
+            }
+        });
+
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -65,6 +77,11 @@ public class SettingsActivity6 extends AppCompatActivity {
 
             }
         });
+    }
+    // Methode to navigate to screen EditUserProfile
+    private void openProfile() {
+        Intent intent= new Intent(this, EditUserProfile.class);
+        startActivity(intent);
     }
 
     public void logout(View view) {
