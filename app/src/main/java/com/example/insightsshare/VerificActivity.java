@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class VerificActivity extends AppCompatActivity {
 
     //Variablen müssten in registryactivity eigentlich gleich bei der DB angelegt werden, wegen programmabstürzen provisorisch hier
+    public static String userID;
     public static String username;
     public static String email;
     public static String bio =" ";
@@ -55,7 +56,10 @@ public class VerificActivity extends AppCompatActivity {
                         rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app/");
                         reference = rootNode.getReference("User");
 
-                        UserClass userInfo = new UserClass(username, email, bio);
+                        //to store the userID in the realtimedatabase
+                        userID= fAuth.getCurrentUser().getUid();
+
+                        UserClass userInfo = new UserClass(userID, username, email, bio);
 
                         reference.child(fAuth.getCurrentUser().getUid()).setValue(userInfo);
                     } else {

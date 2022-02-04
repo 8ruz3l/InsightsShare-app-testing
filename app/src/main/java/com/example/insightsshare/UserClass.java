@@ -2,17 +2,22 @@ package com.example.insightsshare;
 
 public class UserClass {
 
-    String username, email, bio;
+    String userID, username, email, bio;
 
     public UserClass(){
         // Required empty public constructor
     }
 
-    public UserClass (String username, String email, String bio){
+    public UserClass (String userID,String username, String email, String bio){
+        this.userID= userID;
         this.username = username;
         this.email = email;
         this.bio = bio;
     }
+
+    public String getUserID() { return userID; }
+
+    public void setUserID(String userID) { this.userID = userID; }
 
     public String getUsername() {
         return username;

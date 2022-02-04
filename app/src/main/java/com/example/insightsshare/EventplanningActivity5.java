@@ -162,7 +162,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
                 //here the data is collected (to be send to the DB in the next step)
                 EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
-                        ValueEventCreator, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);//, ValuePublish);
+                        ValueEventCreator, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);
 
                 //data is stored in the DB
                 assert ValueEventId != null;

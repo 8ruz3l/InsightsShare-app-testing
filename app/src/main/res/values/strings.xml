@@ -106,6 +106,7 @@
     <string name="toast_event_deleted">Event successfully deleted</string>
     <string name="toast_event_participate">You joined the event!</string>
     <string name="toast_event_leave">You left the event</string>
+    <string name="toast_profile_changed">Profile successfully updated</string>
 
 
 </resources>
