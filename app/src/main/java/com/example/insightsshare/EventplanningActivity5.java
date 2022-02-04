@@ -46,7 +46,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
     private Button timePickerButton;
     int tHour, tMin;
 
-    //variables for transfering Eventdata to DB
+    //variables for transferring Eventdata to DB
     TextView eventCreator;
     EditText eventName, eventDescription, eventPlace, maxParticipants;
     Button ButtonSave;
@@ -113,7 +113,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
 
         //fill the xml fields with the data of the existing event if (updateExistingEvent= true)
-        if (updateExistingEvent==false) {
+        if (!updateExistingEvent) {
             // this is only for new Events
             datePickerButton.setText(getTodaysDate());
         } else {
@@ -147,8 +147,12 @@ public class EventplanningActivity5 extends AppCompatActivity {
             rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
             reference = rootNode.getReference().child("Event");
 
+            //TODO There must be a userID of the creator attached to an event, so that the Eventdatails can assign the roles:
+            // creator, participant or nonparticipant by the id and not the username.
+            // The current version can be exploited by changing your profilename to the name of an eventcreator to change their event or delete it :(
+
             //decides between creating a new Event or updating an existing Event
-            if (updateExistingEvent == false) {
+            if (!updateExistingEvent) {
                 //get all the values of the data (input) in stings so it can be stored
                 String ValueEventId = reference.push().getKey();
                 String ValueEventName = eventName.getEditableText().toString();
@@ -162,7 +166,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
                 //here the data is collected (to be send to the DB in the next step)
                 EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
-                        ValueEventCreator, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);//, ValuePublish);
+                        ValueEventCreator, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);
 
                 //data is stored in the DB
                 assert ValueEventId != null;
@@ -181,7 +185,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 String ValueMaxParticipants = maxParticipants.getEditableText().toString();
 
                 //put the changeable data in a Map because this is the type in which it can be stored in: reference.child().updateChildren(!!!MAP REQUIRED!!!);
-                HashMap<String, Object> EventMap= new HashMap<String, Object>();
+                HashMap<String, Object> EventMap= new HashMap<>();
                 EventMap.put("eventName", ValueEventName);
                 EventMap.put("eventCreator", ValueEventCreator);
                 EventMap.put("eventDescription", ValueEventDescription);
@@ -257,13 +261,13 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
             //Store hour and min in a String
             String time = hour + ":" + min;
-            //Initaltize 24h Format
+            //Initialize 24h Format
             SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
             try {
                 Date date = f24Hours.parse(time);
                 //Initialize 12hours time format
                 SimpleDateFormat f12Hours = new SimpleDateFormat("HH:mm aa");
-                //Set sected Time on Button
+                //Set selected Time on Button
                 assert date != null;
                 timePickerButton.setText(f12Hours.format(date));
             } catch (ParseException e) {

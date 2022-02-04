@@ -73,6 +73,16 @@
                 android:layout_marginEnd="28dp"
                 android:text="@string/eventplanning5_creator" />
 
+            <TextView
+                android:id="@+id/OutputBiography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/settings6_biography" />
+
             <View
                 android:id="@+id/divider6_1"
                 android:layout_width="match_parent"
@@ -80,8 +90,8 @@
                 android:layout_marginTop="24dp"
                 android:background="?android:attr/listDivider" />
 
-            <TextView
-                android:id="@+id/LabelChangeProfil6"
+            <Button
+                android:id="@+id/ButtonChangeProfil6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
