@@ -50,19 +50,19 @@ public class SettingsActivity6 extends AppCompatActivity {
         database = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
         userRef = database.getReference().child("User").child(user.getUid());
 
+        // variables, which refer to xml layout elements
         username = findViewById(R.id.OutputMailAdress6);
-
         bio =findViewById(R.id.OutputBiography);
-
         navigation= findViewById(R.id.ButtonChangeProfil6);
 
-        navigation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openProfile();
-            }
-        });
+        navigation.setOnClickListener(view -> openProfile());
+    }
 
+    /*this will be executed when the Settings become visible again
+    DO NOT DELETE, because if you do, the user changes the profile, but when they come back
+    to settings the old data is shown even though the data was updated in the database> irritating for the user*/
+    protected void onStart(){
+        super.onStart();
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
