@@ -2,7 +2,7 @@ package com.example.insightsshare;
 
 public class EventItem {
 
-    public String eventId, eventName, eventDescription, eventCreator, eventCreationDate, eventPlace,
+    public String eventId, eventName, eventDescription, eventCreator, eventCreatorsID, eventCreationDate, eventPlace,
             eventDate, eventTime, maxParticipants;
 
     public EventItem() {
@@ -10,12 +10,13 @@ public class EventItem {
      }
 
 
-    public EventItem(String eventId, String eventName, String eventDescription, String eventCreator, String eventCreationDate,
+    public EventItem(String eventId, String eventName, String eventDescription, String eventCreator, String eventCreatorsID, String eventCreationDate,
                      String eventPlace, String eventDate, String eventTime, String maxParticipants) {
         this.eventId = eventId;
         this.eventName = eventName;
         this.eventDescription= eventDescription;
         this.eventCreator = eventCreator;
+        this.eventCreatorsID= eventCreatorsID;
         this.eventCreationDate = eventCreationDate;
         this.eventPlace = eventPlace;
         this.eventDate = eventDate;
@@ -50,6 +51,10 @@ public class EventItem {
     public void setEventCreator(String eventCreator) {
         this.eventCreator = eventCreator;
     }
+
+    public String getEventCreatorsID() { return eventCreatorsID; }
+
+    public void setEventCreatorsID(String eventCreatorsID) { this.eventCreatorsID = eventCreatorsID; }
 
     public String getEventCreationDate() {
         return eventCreationDate;

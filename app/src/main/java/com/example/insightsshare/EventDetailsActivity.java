@@ -34,7 +34,7 @@ public class EventDetailsActivity extends AppCompatActivity {
     ValueEventListener eventListener;
 
     // View elements
-    String eventId;
+    String eventId, eventCreatorsID;
     TextView eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime, eventDescription;
     RecyclerView participantsView;
     LinearLayout bottomContainer, participantsInfo, eventControl;
@@ -94,6 +94,7 @@ public class EventDetailsActivity extends AppCompatActivity {
 
                 eventName.setText(eventItem.getEventName());
                 eventCreator.setText(eventItem.getEventCreator());
+                eventCreatorsID=eventItem.getEventCreatorsID();
                 eventCreationDate.setText(eventItem.getEventCreationDate());
                 eventDate.setText(eventItem.getEventDate());
                 eventTime.setText(eventItem.getEventTime());
@@ -116,7 +117,7 @@ public class EventDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot userSnapshot) {
                         UserClass userClass = userSnapshot.getValue(UserClass.class);
-                        if (userClass.getUsername().equals(eventCreator.getText().toString())) {
+                        if (userClass.getUserID().equals (eventCreatorsID)) {
                             setCreatorView();
                         } else if (listSnapshot.child("participantsList").hasChild(user.getUid())){
                             setParticipantView();
