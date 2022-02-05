@@ -50,6 +50,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
     TextView eventCreator;
     EditText eventName, eventDescription, eventPlace, maxParticipants;
     Button ButtonSave;
+    String eventCreatorsID;
 
     //variables for updating existing Eventdata
     Boolean updateExistingEvent = false; // False as default
@@ -92,6 +93,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserClass userClass = snapshot.getValue(UserClass.class);
                 eventCreator.setText(userClass.getUsername());
+                eventCreatorsID=userClass.getUserID();
             }
 
             @Override
@@ -147,10 +149,6 @@ public class EventplanningActivity5 extends AppCompatActivity {
             rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
             reference = rootNode.getReference().child("Event");
 
-            //TODO There must be a userID of the creator attached to an event, so that the Eventdatails can assign the roles:
-            // creator, participant or nonparticipant by the id and not the username.
-            // The current version can be exploited by changing your profilename to the name of an eventcreator to change their event or delete it :(
-
             //decides between creating a new Event or updating an existing Event
             if (!updateExistingEvent) {
                 //get all the values of the data (input) in stings so it can be stored
@@ -163,10 +161,11 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 String ValueMaxParticipants = maxParticipants.getEditableText().toString();
                 String todayStr = getTodaysDate();
                 String ValueEventCreator = eventCreator.getText().toString();
+                String valueEventCreatorsID=eventCreatorsID;
 
                 //here the data is collected (to be send to the DB in the next step)
                 EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
-                        ValueEventCreator, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);
+                        ValueEventCreator, valueEventCreatorsID, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);
 
                 //data is stored in the DB
                 assert ValueEventId != null;
