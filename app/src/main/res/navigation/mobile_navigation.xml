@@ -14,9 +14,9 @@
 
     <fragment
         android:id="@+id/navigation_events_calendar"
-        android:name="com.example.insightsshare.EventsCalendarFragment"
+        android:name="com.example.insightsshare.MyEventFragment"
         android:label="@string/title_my_event"
-        tools:layout="@layout/fragment_events_calendar" />
+        tools:layout="@layout/fragment_my_event" />
 
     <activity
         android:id="@+id/navigation_event_creation"

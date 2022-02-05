@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MyEventFragment">
+
+    <LinearLayout
+        android:id="@+id/my_created_event_info"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_weight=".5"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/my_created_event_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/my_created_event_title"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/no_created_event"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/no_created_event"
+            android:textSize="15dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_created_event_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/my_created_event_title"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:id="@+id/my_participated_event_info"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/my_created_event_info"
+        android:layout_marginStart="10dp"
+        android:layout_weight=".5"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/my_participated_event_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/my_participated_event_title"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/no_participated_event"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/no_participated_event"
+            android:textSize="15dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_participated_event_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/my_participated_event_title"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

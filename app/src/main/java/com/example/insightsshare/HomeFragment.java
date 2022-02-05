@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,11 +22,17 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
-    RecyclerView eventsView;
+    // Database elements
     FirebaseDatabase database;
     DatabaseReference eventRef;
+
+    // View elements
+    RecyclerView eventsView;
+    TextView noEvent;
+
     EventListAdapter eventListAdapter;
     ArrayList<EventItem> eventList;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -42,6 +49,8 @@ public class HomeFragment extends Fragment {
 
         eventsView = view.findViewById(R.id.event_list);
         eventsView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        noEvent = view.findViewById(R.id.no_event);
 
         database = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
         eventRef = database.getReference().child("Event");
@@ -60,6 +69,12 @@ public class HomeFragment extends Fragment {
                     eventList.add(eventItem);
                 }
                 eventListAdapter.notifyDataSetChanged();
+
+                if (eventList.size() == 0) {
+                    noEvent.setVisibility(View.VISIBLE);
+                } else {
+                    noEvent.setVisibility(View.GONE);
+                }
             }
 
             @Override
