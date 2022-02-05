@@ -216,12 +216,61 @@
                     android:layout_marginStart="10dp"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/participants_list"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:textSize="20dp"
+                                android:text="(" />
+
+                            <TextView
+                                android:id="@+id/event_current_participants"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="20dp"
+                                android:text="" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="10dp"
+                                android:textSize="20dp"
+                                android:text="/" />
+
+                            <TextView
+                                android:id="@+id/event_max_participants"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="20dp"
+                                android:text="" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:textSize="20dp"
+                                android:text=")" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/participants_list"
@@ -244,7 +293,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="#9c1c4d"
+                android:backgroundTint="@color/button_state_color"
                 android:text="@string/leave_button" />
 
             <LinearLayout
@@ -259,7 +308,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:backgroundTint="#9c1c4d"
+                    android:backgroundTint="@color/button_state_color"
                     android:text="@string/edit_button" />
 
                 <Button
@@ -268,7 +317,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
-                    android:backgroundTint="#9c1c4d"
+                    android:backgroundTint="@color/button_state_color"
                     android:text="@string/delete_button" />
 
             </LinearLayout>
@@ -290,13 +339,20 @@
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="@string/participants_maxed" />
+
         <Button
             android:id="@+id/join_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="28dp"
             android:layout_marginVertical="10dp"
-            android:backgroundTint="#9c1c4d"
+            android:backgroundTint="@color/button_state_color"
             android:text="@string/join_button" />
 
     </LinearLayout>
