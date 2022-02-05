@@ -3,7 +3,7 @@
 
     <!-- Toolbar -->
     <string name="title_home_toolbar">Upcoming Events</string>
-    <string name="title_my_event_toolbar">Events Calendar</string>
+    <string name="title_my_event_toolbar">My Events List</string>
     <string name="title_create_event_toolbar">Plan an Event</string>
     <string name="title_edit_event_toolbar">Edit My Event</string>
     <string name="title_setting_toolbar">Setting</string>
@@ -31,6 +31,15 @@
     <string name="verification_label">Wait for email verification</string>
     <string name="changeData_button">Change Data</string>
     <string name="verify_button">Email verified?</string>
+
+    <!-- Home -->
+    <string name="no_event">Oops... There is currently no upcoming event. Be the first to make one!</string>
+
+    <!-- My Event -->
+    <string name="my_created_event_title">Events Created By Me</string>
+    <string name="my_participated_event_title">Other Events</string>
+    <string name="no_created_event">No Events Created</string>
+    <string name="no_participated_event">No Events Participated</string>
 
     <!-- Splash Screen -->
     <string name="ish_logo">InsightsShare Logo</string>

@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+    <TextView
+        android:id="@+id/no_event"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="55dp"
+        android:gravity="center"
+        android:text="@string/no_event"
+        android:textSize="15dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/event_list"
         android:layout_width="match_parent"
