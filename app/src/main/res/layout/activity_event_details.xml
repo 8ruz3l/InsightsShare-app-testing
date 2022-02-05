@@ -340,6 +340,7 @@
             android:background="?android:attr/listDivider" />
 
         <TextView
+            android:id="@+id/participants_maxed_notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"

@@ -35,7 +35,7 @@ public class EventDetailsActivity extends AppCompatActivity {
 
     // View elements
     String eventId, eventCreatorsID;
-    TextView eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime, eventDescription, currentParticipantsNumber, maxParticipantsNumber;
+    TextView eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime, eventDescription, currentParticipantsNumber, maxParticipantsNumber, participantsMaxedNotification;
     RecyclerView participantsView;
     LinearLayout bottomContainer, participantsInfo, eventControl;
     Button joinButton, leaveButton, editButton, deleteButton;
@@ -75,6 +75,7 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         // Participants info on participant view
         participantsInfo = findViewById(R.id.participants_info);
+        participantsMaxedNotification = findViewById(R.id.participants_maxed_notification);
         currentParticipantsNumber = findViewById(R.id.event_current_participants);
         maxParticipantsNumber = findViewById(R.id.event_max_participants);
         participantsView = findViewById(R.id.participants_list);
@@ -213,7 +214,11 @@ public class EventDetailsActivity extends AppCompatActivity {
         });
 
         if (currentParticipants == maxParticipants){
+            participantsMaxedNotification.setVisibility(View.VISIBLE);
             joinButton.setEnabled(false);
+        } else {
+            participantsMaxedNotification.setVisibility(View.GONE);
+            joinButton.setEnabled(true);
         }
     }
 
