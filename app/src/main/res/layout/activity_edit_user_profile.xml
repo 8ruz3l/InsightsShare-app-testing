@@ -166,18 +166,36 @@
                 android:gravity="center"
                 android:text="@string/edit_user_profile_label_birthday" />
 
-            <Button
-                android:id="@+id/buttonBirthday"
-                style="?android:spinnerStyle"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginEnd="28dp"
-                android:gravity="center"
-                android:onClick="openDatePicker"
-                android:outlineProvider="bounds"
-                android:text="@string/eventplanning5_date"
-                android:textColor="@color/black" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonBirthday"
+                    style="?android:spinnerStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginEnd="28dp"
+                    android:gravity="center"
+                    android:onClick="openDatePicker"
+                    android:outlineProvider="bounds"
+                    android:text="@string/eventplanning5_date"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/buttonDeleteBirthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginEnd="28dp"
+                    android:gravity="center"
+                    android:backgroundTint="@color/theme"
+                    android:text="Delete"
+                    android:onClick="deleteBirthday"/>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/labelAge"

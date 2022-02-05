@@ -31,7 +31,7 @@ public class EditUserProfile extends AppCompatActivity {
 
     //variables to refer to the layouts xml-elements in this class
     private EditText userName, bio, firstname, lastname, phoneNumber, nationality;
-    private Button buttonSave;
+    private Button buttonSave, buttonDeleteBirthday;
 
     //DatePicker
     private DatePickerDialog datePickerDialog;
@@ -62,6 +62,7 @@ public class EditUserProfile extends AppCompatActivity {
         nationality=findViewById(R.id.inputNationality);
         buttonSave= findViewById(R.id.ButtonSave);
         birthday =findViewById(R.id.buttonBirthday);
+        buttonDeleteBirthday=findViewById(R.id.buttonDeleteBirthday);
 
 
         // Set up the toolbar
@@ -131,8 +132,22 @@ public class EditUserProfile extends AppCompatActivity {
             //display a little success-message, so that the user knows the data was saved
             Toast.makeText(EditUserProfile.this, R.string.toast_profile_changed, Toast.LENGTH_SHORT).show();
         });
-    }
 
+        buttonDeleteBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
+                reference = rootNode.getReference().child("User");
+
+                HashMap<String, Object> UserMap= new HashMap<>();
+                UserMap.put("birthday", "");
+
+                reference.child(userID).updateChildren(UserMap);
+
+                birthday.setText("");
+            }
+        });
+    }
 
 
     //this is a methode to pick the birthday (called in OnCreate)
