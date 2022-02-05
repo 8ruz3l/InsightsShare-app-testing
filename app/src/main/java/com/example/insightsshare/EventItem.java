@@ -5,13 +5,14 @@ public class EventItem {
     public String eventId, eventName, eventDescription, eventCreator, eventCreatorsID, eventCreationDate, eventPlace,
             eventDate, eventTime, maxParticipants;
 
+    public int currentParticipants;
+
     public EventItem() {
         // Required empty public constructor
      }
 
-
     public EventItem(String eventId, String eventName, String eventDescription, String eventCreator, String eventCreatorsID, String eventCreationDate,
-                     String eventPlace, String eventDate, String eventTime, String maxParticipants) {
+                     String eventPlace, String eventDate, String eventTime, int currentParticipants, String maxParticipants) {
         this.eventId = eventId;
         this.eventName = eventName;
         this.eventDescription= eventDescription;
@@ -21,6 +22,7 @@ public class EventItem {
         this.eventPlace = eventPlace;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
+        this.currentParticipants = currentParticipants;
         this.maxParticipants = maxParticipants;
     }
 
@@ -84,6 +86,14 @@ public class EventItem {
 
     public void setEventTime(String eventTime) {
         this.eventTime = eventTime;
+    }
+
+    public int getCurrentParticipants() {
+        return currentParticipants;
+    }
+
+    public void setCurrentParticipants(int currentParticipants) {
+        this.currentParticipants = currentParticipants;
     }
 
     public String getMaxParticipants() {

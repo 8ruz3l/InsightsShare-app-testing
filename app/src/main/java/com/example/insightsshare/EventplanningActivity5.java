@@ -158,6 +158,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
                 String ValueDate = datePickerButton.getText().toString();
                 String ValueTime = timePickerButton.getText().toString();
                 String ValuePlace = eventPlace.getEditableText().toString();
+                int ValueCurrentParticipants = 1;
                 String ValueMaxParticipants = maxParticipants.getEditableText().toString();
                 String todayStr = getTodaysDate();
                 String ValueEventCreator = eventCreator.getText().toString();
@@ -165,7 +166,7 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
                 //here the data is collected (to be send to the DB in the next step)
                 EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
-                        ValueEventCreator, valueEventCreatorsID, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);
+                        ValueEventCreator, valueEventCreatorsID, todayStr, ValuePlace, ValueDate, ValueTime, ValueCurrentParticipants, ValueMaxParticipants);
 
                 //data is stored in the DB
                 assert ValueEventId != null;

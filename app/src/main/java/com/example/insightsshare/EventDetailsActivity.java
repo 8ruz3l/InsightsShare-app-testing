@@ -35,13 +35,16 @@ public class EventDetailsActivity extends AppCompatActivity {
 
     // View elements
     String eventId, eventCreatorsID;
-    TextView eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime, eventDescription;
+    TextView eventName, eventCreator, eventCreationDate, eventPlace, eventDate, eventTime, eventDescription, currentParticipantsNumber, maxParticipantsNumber, participantsMaxedNotification;
     RecyclerView participantsView;
     LinearLayout bottomContainer, participantsInfo, eventControl;
     Button joinButton, leaveButton, editButton, deleteButton;
 
     // Get current user
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+    // Variables to compare the current and maximum number of participants
+    int currentParticipants, maxParticipants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,9 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         // Participants info on participant view
         participantsInfo = findViewById(R.id.participants_info);
+        participantsMaxedNotification = findViewById(R.id.participants_maxed_notification);
+        currentParticipantsNumber = findViewById(R.id.event_current_participants);
+        maxParticipantsNumber = findViewById(R.id.event_max_participants);
         participantsView = findViewById(R.id.participants_list);
         participantsView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -100,6 +106,12 @@ public class EventDetailsActivity extends AppCompatActivity {
                 eventTime.setText(eventItem.getEventTime());
                 eventPlace.setText(eventItem.getEventPlace());
                 eventDescription.setText(eventItem.getEventDescription());
+
+                maxParticipants = Integer.valueOf(eventItem.getMaxParticipants());
+                maxParticipantsNumber.setText(eventItem.getMaxParticipants());
+
+                currentParticipants = eventItem.getCurrentParticipants();
+                currentParticipantsNumber.setText(String.valueOf(currentParticipants));
             }
 
             @Override
@@ -152,6 +164,7 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         leaveButton.setOnClickListener(view -> {
             eventRef.child("participantsList").child(user.getUid()).removeValue();
+            eventRef.child("currentParticipants").setValue(--currentParticipants);
             Toast.makeText(EventDetailsActivity.this,R.string.toast_event_leave,Toast.LENGTH_SHORT).show();
         });
     }
@@ -196,8 +209,17 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         joinButton.setOnClickListener(view -> {
             eventRef.child("participantsList").child(user.getUid()).setValue(false);
+            eventRef.child("currentParticipants").setValue(++currentParticipants);
             Toast.makeText(EventDetailsActivity.this,R.string.toast_event_participate,Toast.LENGTH_SHORT).show();
         });
+
+        if (currentParticipants == maxParticipants){
+            participantsMaxedNotification.setVisibility(View.VISIBLE);
+            joinButton.setEnabled(false);
+        } else {
+            participantsMaxedNotification.setVisibility(View.GONE);
+            joinButton.setEnabled(true);
+        }
     }
 
 

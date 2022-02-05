@@ -39,6 +39,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         holder.eventCreationDate.setText(eventItem.getEventCreationDate());
         holder.eventPlace.setText(eventItem.getEventPlace());
         holder.eventDate.setText(eventItem.getEventDate());
+        holder.currentParticipants.setText(String.valueOf(eventItem.getCurrentParticipants()));
         holder.maxParticipants.setText(eventItem.getMaxParticipants());
 
         holder.eventCard.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +62,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         CardView eventCard;
 
         TextView eventName, eventCreator, eventCreationDate, eventPlace, eventDate,
-                maxParticipants;
+                currentParticipants, maxParticipants;
 
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,6 +74,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
             eventCreationDate = itemView.findViewById(R.id.event_creation_date);
             eventPlace =  itemView.findViewById(R.id.event_place);
             eventDate = itemView.findViewById(R.id.event_date);
+            currentParticipants = itemView.findViewById(R.id.event_current_participants);
             maxParticipants = itemView.findViewById(R.id.event_max_participants);
         }
     }
