@@ -64,7 +64,7 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/OutputMailAdress6"
+                android:id="@+id/outputUsername6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -74,7 +74,7 @@
                 android:text="@string/eventplanning5_creator" />
 
             <TextView
-                android:id="@+id/OutputBiography"
+                android:id="@+id/outputBiography6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -90,13 +90,125 @@
                 android:layout_marginTop="24dp"
                 android:background="?android:attr/listDivider" />
 
-            <Button
-                android:id="@+id/ButtonChangeProfil6"
+            <TextView
+                android:id="@+id/labelFirstName6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_firstname" />
+
+            <TextView
+                android:id="@+id/outputFirstName6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/labelLastName6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_lastname" />
+
+            <TextView
+                android:id="@+id/outputLastName6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/labelBirthday6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_birthday" />
+
+            <TextView
+                android:id="@+id/outputBirthday6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/labelAge6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:text="@string/edit_user_profile_label_age" />
+
+            <TextView
+                android:id="@+id/outputAge6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:visibility="gone"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/labelPhonenumber6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_phonenumber" />
+
+            <TextView
+                android:id="@+id/outputPhonenumber6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/labelNationality6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_nationality" />
+
+            <TextView
+                android:id="@+id/outputNationality6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/ButtonChangeProfil6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/theme"
                 android:text="@string/settings6_label_profil_edit" />
 
             <View
