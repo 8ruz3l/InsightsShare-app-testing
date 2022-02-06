@@ -83,9 +83,6 @@ public class SettingsActivity6 extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserClass userClass = snapshot.getValue(UserClass.class);
 
-                System.out.println(username.getText().toString()+bio.getText().toString()+firstname.getText().toString()+lastname.getText().toString()
-                        +birthday.getText().toString()+phonenumber.getText().toString()+nationality.getText().toString());
-
                 username.setText(userClass.getUsername());
                 bio.setText(userClass.getBio());
                 firstname.setText(userClass.getFirstname());
