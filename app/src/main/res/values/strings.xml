@@ -20,6 +20,7 @@
     <string name="event_creation_date">on</string>
 
     <!-- Event Details -->
+    <string name="participants_maxed">This event is currently full!</string>
     <string name="participants_list">Event Participants</string>
     <string name="leave_button">Leave Event</string>
     <string name="join_button">Join</string>

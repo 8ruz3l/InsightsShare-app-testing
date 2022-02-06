@@ -145,34 +145,38 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
         //save/ updates Data in DB on Buttonclick
         ButtonSave.setOnClickListener(view -> {
+
             if(maxParticipants.getEditableText().toString().isEmpty()){
                 Toast.makeText(EventplanningActivity5.this, R.string.toast_write_maxPraticipants, Toast.LENGTH_SHORT).show();
-            } else {
-                rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
-                reference = rootNode.getReference().child("Event");
+             } else {
 
-                //decides between creating a new Event or updating an existing Event
-                if (!updateExistingEvent) {
-                    //get all the values of the data (input) in stings so it can be stored
-                    String ValueEventId = reference.push().getKey();
-                    String ValueEventName = eventName.getEditableText().toString();
-                    String ValueEventDescription = eventDescription.getEditableText().toString();
-                    String ValueDate = datePickerButton.getText().toString();
-                    String ValueTime = timePickerButton.getText().toString();
-                    String ValuePlace = eventPlace.getEditableText().toString();
-                    String ValueMaxParticipants = maxParticipants.getEditableText().toString();
-                    String todayStr = getTodaysDate();
-                    String ValueEventCreator = eventCreator.getText().toString();
-                    String valueEventCreatorsID = eventCreatorsID;
+              rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
+              reference = rootNode.getReference().child("Event");
 
-                    //here the data is collected (to be send to the DB in the next step)
-                    EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
-                            ValueEventCreator, valueEventCreatorsID, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);
+              //decides between creating a new Event or updating an existing Event
+              if (!updateExistingEvent) {
+                  //get all the values of the data (input) in stings so it can be stored
+                  String ValueEventId = reference.push().getKey();
+                  String ValueEventName = eventName.getEditableText().toString();
+                  String ValueEventDescription = eventDescription.getEditableText().toString();
+                  String ValueDate = datePickerButton.getText().toString();
+                  String ValueTime = timePickerButton.getText().toString();
+                  String ValuePlace = eventPlace.getEditableText().toString();
+                  int ValueCurrentParticipants = 1;
+                  String ValueMaxParticipants = maxParticipants.getEditableText().toString();
+                  String todayStr = getTodaysDate();
+                  String ValueEventCreator = eventCreator.getText().toString();
+                  String valueEventCreatorsID=eventCreatorsID;
 
-                    //data is stored in the DB
-                    assert ValueEventId != null;
-                    reference.child(ValueEventId).setValue(eventEntry); //PrimaryKey is ValueEventId
-                    reference.child(ValueEventId).child("participantsList").child(user.getUid()).setValue(true); // Join the event automatically
+                  //here the data is collected (to be send to the DB in the next step)
+                  EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
+                          ValueEventCreator, valueEventCreatorsID, todayStr, ValuePlace, ValueDate, ValueTime, ValueCurrentParticipants, ValueMaxParticipants);
+
+                  //data is stored in the DB
+                  assert ValueEventId != null;
+                  reference.child(ValueEventId).setValue(eventEntry); //PrimaryKey is ValueEventId
+                  reference.child(ValueEventId).child("participantsList").child(user.getUid()).setValue(true); // Join the event automatically
+
                 } else {
                     //update an existing Event
                     //get all the existing and new values of the eventdata in stings so it can be stored
