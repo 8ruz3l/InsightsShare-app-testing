@@ -83,6 +83,9 @@ public class SettingsActivity6 extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 UserClass userClass = snapshot.getValue(UserClass.class);
 
+                System.out.println(username.getText().toString()+bio.getText().toString()+firstname.getText().toString()+lastname.getText().toString()
+                        +birthday.getText().toString()+phonenumber.getText().toString()+nationality.getText().toString());
+
                 username.setText(userClass.getUsername());
                 bio.setText(userClass.getBio());
                 firstname.setText(userClass.getFirstname());
@@ -93,30 +96,53 @@ public class SettingsActivity6 extends AppCompatActivity {
 
                 //if there is "no entry" in the database for the optional contactinformations
                 //then the label and the outputtextview should be invisible
-                if(userClass.getFirstname()==""){
+                if(bio.getText().toString().isEmpty()){
+                    bio.setVisibility(View.GONE); //bio has no label
+                }  else {
+                    bio.setVisibility(View.VISIBLE);
+                }
+
+                if(firstname.getText().toString().isEmpty()){
                     firstname.setVisibility(View.GONE);
                     labelFirstname.setVisibility(View.GONE);
+                }  else {
+                    firstname.setVisibility(View.VISIBLE);
+                    labelFirstname.setVisibility(View.VISIBLE);
                 }
 
-                if(userClass.getLastname()==""){
+                if(lastname.getText().toString().isEmpty()){
                     lastname.setVisibility(View.GONE);
                     labelLastname.setVisibility(View.GONE);
+                } else {
+                    lastname.setVisibility(View.VISIBLE);
+                    labelLastname.setVisibility(View.VISIBLE);
                 }
 
-                if(userClass.getBirthday()==""){
+                if(birthday.getText().toString().isEmpty()){
                     birthday.setVisibility(View.GONE);
                     labelBirthday.setVisibility(View.GONE);
+                }  else {
+                    birthday.setVisibility(View.VISIBLE);
+                    labelBirthday.setVisibility(View.VISIBLE);
                 }
 
-                if(userClass.getPhoneNumber()==""){
+                if(phonenumber.getText().toString().isEmpty()){
                     phonenumber.setVisibility(View.GONE);
                     labelPhonenumber.setVisibility(View.GONE);
+                }  else {
+                    phonenumber.setVisibility(View.VISIBLE);
+                    labelPhonenumber.setVisibility(View.VISIBLE);
                 }
 
-                if(userClass.getNationality()==""){
+                if(nationality.getText().toString().isEmpty()){
                     nationality.setVisibility(View.GONE);
                     labelNationality.setVisibility(View.GONE);
                 }
+                else {
+                    nationality.setVisibility(View.VISIBLE);
+                    labelNationality.setVisibility(View.VISIBLE);
+                }
+
             }
 
             @Override

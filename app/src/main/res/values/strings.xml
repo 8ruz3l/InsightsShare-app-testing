@@ -129,6 +129,8 @@
     <string name="toast_event_participate">You joined the event!</string>
     <string name="toast_event_leave">You left the event</string>
     <string name="toast_profile_changed">Profile successfully updated</string>
+    <string name="toast_write_username">Please choose a fitting username.</string>
+    <string name="toast_write_maxPraticipants">Please enter the maximal number of participants.</string>
 
 
 </resources>

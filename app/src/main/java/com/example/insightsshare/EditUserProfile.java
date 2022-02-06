@@ -101,36 +101,41 @@ public class EditUserProfile extends AppCompatActivity {
 
         //save/ update changed data
         buttonSave.setOnClickListener(view -> {
-            rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
-            reference = rootNode.getReference().child("User");
+            //check if the username is there --> no anonymous creator with blank username possible
+            if (userName.getText().toString().isEmpty()){
+                Toast.makeText(EditUserProfile.this, R.string.toast_write_username, Toast.LENGTH_SHORT).show();
+            } else {
+                rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
+                reference = rootNode.getReference().child("User");
 
-            //put data into Strings to get stored in DB
-            String valueProfileName = userName.getEditableText().toString();
-            String valueBio = bio.getEditableText().toString();
-            String valueFirstname = firstname.getEditableText().toString();
-            String valueLastname = lastname.getEditableText().toString();
-            String valueBirthday= birthday.getText().toString();
-            String valuePhoneNumber = phoneNumber.getEditableText().toString();
-            String valueNationality = nationality.getEditableText().toString();
+                //put data into Strings to get stored in DB
+                String valueProfileName = userName.getEditableText().toString();
+                String valueBio = bio.getEditableText().toString();
+                String valueFirstname = firstname.getEditableText().toString();
+                String valueLastname = lastname.getEditableText().toString();
+                String valueBirthday = birthday.getText().toString();
+                String valuePhoneNumber = phoneNumber.getEditableText().toString();
+                String valueNationality = nationality.getEditableText().toString();
 
-            //put the changeable data in a Map because this is the type in which it can be stored in: reference.child().updateChildren(!!!MAP REQUIRED!!!);
-            HashMap<String, Object> UserMap = new HashMap<>();
-            UserMap.put("username", valueProfileName);
-            UserMap.put("bio", valueBio);
-            UserMap.put("firstname", valueFirstname);
-            UserMap.put("lastname", valueLastname);
-            UserMap.put("birthday", valueBirthday);
-            UserMap.put("phoneNumber", valuePhoneNumber);
-            UserMap.put("nationality", valueNationality);
-            
-            //changed data is stored in the DB
-            reference.child(userID).updateChildren(UserMap);
+                //put the changeable data in a Map because this is the type in which it can be stored in: reference.child().updateChildren(!!!MAP REQUIRED!!!);
+                HashMap<String, Object> UserMap = new HashMap<>();
+                UserMap.put("username", valueProfileName);
+                UserMap.put("bio", valueBio);
+                UserMap.put("firstname", valueFirstname);
+                UserMap.put("lastname", valueLastname);
+                UserMap.put("birthday", valueBirthday);
+                UserMap.put("phoneNumber", valuePhoneNumber);
+                UserMap.put("nationality", valueNationality);
 
-            //Automatically redirect user to NavigationActivity or EventDetailsActivity
-            onBackPressed();
+                //changed data is stored in the DB
+                reference.child(userID).updateChildren(UserMap);
 
-            //display a little success-message, so that the user knows the data was saved
-            Toast.makeText(EditUserProfile.this, R.string.toast_profile_changed, Toast.LENGTH_SHORT).show();
+                //Automatically redirect user to NavigationActivity or EventDetailsActivity
+                onBackPressed();
+
+                //display a little success-message, so that the user knows the data was saved
+                Toast.makeText(EditUserProfile.this, R.string.toast_profile_changed, Toast.LENGTH_SHORT).show();
+            }
         });
 
         buttonDeleteBirthday.setOnClickListener(new View.OnClickListener() {

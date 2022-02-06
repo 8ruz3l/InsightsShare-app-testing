@@ -82,8 +82,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="28dp"
                 android:layout_marginEnd="28dp"
-                android:backgroundTint="@color/white"
                 android:text="@string/eventplanning5_creator"
+                android:inputType="text"
                 android:textColor="@color/black" />
 
             <TextView
@@ -134,7 +134,7 @@
                 android:layout_marginEnd="28dp"
                 android:ems="10"
                 android:gravity="center_horizontal"
-                android:inputType="textPersonName"
+                android:inputType="textCapWords"
                 android:text="" />
 
             <TextView
@@ -155,7 +155,7 @@
                 android:layout_marginEnd="28dp"
                 android:ems="10"
                 android:gravity="center_horizontal"
-                android:inputType="textPersonName"
+                android:inputType="textCapWords"
                 android:text="" />
 
             <TextView
@@ -235,7 +235,7 @@
                 android:layout_marginEnd="28dp"
                 android:ems="10"
                 android:gravity="center"
-                android:text="" />
+                android:inputType="textCapWords" />
 
             <Button
                 android:id="@+id/ButtonSave"
@@ -245,11 +245,10 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:layout_marginBottom="400dp"
+                android:layout_marginBottom="100dp"
                 android:backgroundTint="@color/theme"
                 android:text="@string/eventplanning5_button_save" />
-            //the margin bottom will help to see the savebutton,
-            even if the phones keybord is open
+            //the margin bottom will help to see the savebutton
 
         </LinearLayout>
 

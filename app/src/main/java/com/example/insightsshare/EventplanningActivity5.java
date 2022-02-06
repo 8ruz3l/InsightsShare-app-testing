@@ -145,70 +145,71 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
         //save/ updates Data in DB on Buttonclick
         ButtonSave.setOnClickListener(view -> {
-
-            rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
-            reference = rootNode.getReference().child("Event");
-
-            //decides between creating a new Event or updating an existing Event
-            if (!updateExistingEvent) {
-                //get all the values of the data (input) in stings so it can be stored
-                String ValueEventId = reference.push().getKey();
-                String ValueEventName = eventName.getEditableText().toString();
-                String ValueEventDescription = eventDescription.getEditableText().toString();
-                String ValueDate = datePickerButton.getText().toString();
-                String ValueTime = timePickerButton.getText().toString();
-                String ValuePlace = eventPlace.getEditableText().toString();
-                String ValueMaxParticipants = maxParticipants.getEditableText().toString();
-                String todayStr = getTodaysDate();
-                String ValueEventCreator = eventCreator.getText().toString();
-                String valueEventCreatorsID=eventCreatorsID;
-
-                //here the data is collected (to be send to the DB in the next step)
-                EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
-                        ValueEventCreator, valueEventCreatorsID, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);
-
-                //data is stored in the DB
-                assert ValueEventId != null;
-                reference.child(ValueEventId).setValue(eventEntry); //PrimaryKey is ValueEventId
-                reference.child(ValueEventId).child("participantsList").child(user.getUid()).setValue(true); // Join the event automatically
+            if(maxParticipants.getEditableText().toString().isEmpty()){
+                Toast.makeText(EventplanningActivity5.this, R.string.toast_write_maxPraticipants, Toast.LENGTH_SHORT).show();
             } else {
-                //update an existing Event
-                //get all the existing and new values of the eventdata in stings so it can be stored
-                String eventId = existingEventID;
-                String ValueEventName = eventName.getEditableText().toString();
-                String ValueEventCreator = eventCreator.getText().toString();
-                String ValueEventDescription = eventDescription.getEditableText().toString();
-                String ValueDate = datePickerButton.getText().toString();
-                String ValueTime = timePickerButton.getText().toString();
-                String ValuePlace = eventPlace.getEditableText().toString();
-                String ValueMaxParticipants = maxParticipants.getEditableText().toString();
+                rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
+                reference = rootNode.getReference().child("Event");
 
-                //put the changeable data in a Map because this is the type in which it can be stored in: reference.child().updateChildren(!!!MAP REQUIRED!!!);
-                HashMap<String, Object> EventMap= new HashMap<>();
-                EventMap.put("eventName", ValueEventName);
-                EventMap.put("eventCreator", ValueEventCreator);
-                EventMap.put("eventDescription", ValueEventDescription);
-                EventMap.put("eventDate", ValueDate);
-                EventMap.put("eventTime", ValueTime);
-                EventMap.put("eventPlace", ValuePlace);
-                EventMap.put("maxParticipants", ValueMaxParticipants);
+                //decides between creating a new Event or updating an existing Event
+                if (!updateExistingEvent) {
+                    //get all the values of the data (input) in stings so it can be stored
+                    String ValueEventId = reference.push().getKey();
+                    String ValueEventName = eventName.getEditableText().toString();
+                    String ValueEventDescription = eventDescription.getEditableText().toString();
+                    String ValueDate = datePickerButton.getText().toString();
+                    String ValueTime = timePickerButton.getText().toString();
+                    String ValuePlace = eventPlace.getEditableText().toString();
+                    String ValueMaxParticipants = maxParticipants.getEditableText().toString();
+                    String todayStr = getTodaysDate();
+                    String ValueEventCreator = eventCreator.getText().toString();
+                    String valueEventCreatorsID = eventCreatorsID;
 
-                //changed data is stored in the DB
-                assert eventId != null;
-                reference.child(eventId).updateChildren(EventMap);
+                    //here the data is collected (to be send to the DB in the next step)
+                    EventItem eventEntry = new EventItem(ValueEventId, ValueEventName, ValueEventDescription,
+                            ValueEventCreator, valueEventCreatorsID, todayStr, ValuePlace, ValueDate, ValueTime, ValueMaxParticipants);
+
+                    //data is stored in the DB
+                    assert ValueEventId != null;
+                    reference.child(ValueEventId).setValue(eventEntry); //PrimaryKey is ValueEventId
+                    reference.child(ValueEventId).child("participantsList").child(user.getUid()).setValue(true); // Join the event automatically
+                } else {
+                    //update an existing Event
+                    //get all the existing and new values of the eventdata in stings so it can be stored
+                    String eventId = existingEventID;
+                    String ValueEventName = eventName.getEditableText().toString();
+                    String ValueEventCreator = eventCreator.getText().toString();
+                    String ValueEventDescription = eventDescription.getEditableText().toString();
+                    String ValueDate = datePickerButton.getText().toString();
+                    String ValueTime = timePickerButton.getText().toString();
+                    String ValuePlace = eventPlace.getEditableText().toString();
+                    String ValueMaxParticipants = maxParticipants.getEditableText().toString();
+
+                    //put the changeable data in a Map because this is the type in which it can be stored in: reference.child().updateChildren(!!!MAP REQUIRED!!!);
+                    HashMap<String, Object> EventMap = new HashMap<>();
+                    EventMap.put("eventName", ValueEventName);
+                    EventMap.put("eventCreator", ValueEventCreator);
+                    EventMap.put("eventDescription", ValueEventDescription);
+                    EventMap.put("eventDate", ValueDate);
+                    EventMap.put("eventTime", ValueTime);
+                    EventMap.put("eventPlace", ValuePlace);
+                    EventMap.put("maxParticipants", ValueMaxParticipants);
+
+                    //changed data is stored in the DB
+                    assert eventId != null;
+                    reference.child(eventId).updateChildren(EventMap);
+                }
+
+                //Automatically redirect user to NavigationActivity or EventDetailsActivity
+                onBackPressed();
+
+                //display a little success-message, so that the user knows the data was saved
+                if (updateExistingEvent) {
+                    Toast.makeText(EventplanningActivity5.this, R.string.toast_event_updated, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(EventplanningActivity5.this, R.string.toast_event_created, Toast.LENGTH_SHORT).show();
+                }
             }
-
-            //Automatically redirect user to NavigationActivity or EventDetailsActivity
-            onBackPressed();
-
-            //display a little success-message, so that the user knows the data was saved
-            if(updateExistingEvent) {
-                Toast.makeText(EventplanningActivity5.this, R.string.toast_event_updated, Toast.LENGTH_SHORT).show();
-            }
-            else{
-                Toast.makeText(EventplanningActivity5.this, R.string.toast_event_created, Toast.LENGTH_SHORT).show();
-            }
-
         });     //end of setOnClickListener for the buttonSave5
     }           //end of onCreate
 
