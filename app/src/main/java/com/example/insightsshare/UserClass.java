@@ -3,7 +3,6 @@ package com.example.insightsshare;
 public class UserClass {
 
     String userID, username, email, bio, firstname, lastname, birthday, phoneNumber, nationality;
-//TODO birthday
     public UserClass(){
         // Required empty public constructor
     }
