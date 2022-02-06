@@ -71,7 +71,6 @@ public class SettingsActivity6 extends AppCompatActivity {
         navigation= findViewById(R.id.ButtonChangeProfil6);
 
         navigation.setOnClickListener(view -> openProfile());
-
     }
 
     /*this will be executed when the Settings become visible again
@@ -94,27 +93,27 @@ public class SettingsActivity6 extends AppCompatActivity {
 
                 //if there is "no entry" in the database for the optional contactinformations
                 //then the label and the outputtextview should be invisible
-                if(firstname.getText()==""){
+                if(userClass.getFirstname()==""){
                     firstname.setVisibility(View.GONE);
                     labelFirstname.setVisibility(View.GONE);
                 }
 
-                if(lastname.getText()==""){
+                if(userClass.getLastname()==""){
                     lastname.setVisibility(View.GONE);
                     labelLastname.setVisibility(View.GONE);
                 }
 
-                if(birthday.getText()==""){
+                if(userClass.getBirthday()==""){
                     birthday.setVisibility(View.GONE);
                     labelBirthday.setVisibility(View.GONE);
                 }
 
-                if(phonenumber.getText()==""){
+                if(userClass.getPhoneNumber()==""){
                     phonenumber.setVisibility(View.GONE);
                     labelPhonenumber.setVisibility(View.GONE);
                 }
 
-                if(nationality.getText()==""){
+                if(userClass.getNationality()==""){
                     nationality.setVisibility(View.GONE);
                     labelNationality.setVisibility(View.GONE);
                 }

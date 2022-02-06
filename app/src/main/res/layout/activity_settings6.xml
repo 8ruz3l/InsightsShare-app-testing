@@ -145,26 +145,6 @@
                 android:gravity="center" />
 
             <TextView
-                android:id="@+id/labelAge6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="28dp"
-                android:gravity="center"
-                android:visibility="gone"
-                android:text="@string/edit_user_profile_label_age" />
-
-            <TextView
-                android:id="@+id/outputAge6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginEnd="28dp"
-                android:visibility="gone"
-                android:gravity="center"/>
-
-            <TextView
                 android:id="@+id/labelPhonenumber6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

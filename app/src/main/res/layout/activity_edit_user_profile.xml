@@ -198,16 +198,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/labelAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="28dp"
-                android:gravity="center"
-                android:text="@string/edit_user_profile_label_age" />
-
-            <TextView
                 android:id="@+id/labelPhonenumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
