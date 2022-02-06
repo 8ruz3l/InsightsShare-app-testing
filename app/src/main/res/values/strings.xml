@@ -117,7 +117,7 @@
     <string name="edit_user_profile_label_phonenumber">Phone Number</string>
     <string name="edit_user_profile_label_nationality">Nationality</string>
     <string name="edit_user_profile_privacyreminder">Please note, that the information below
-        can be seen by everyone on InsightsSare. Therefore consider your privacy before publishing your contactinformation!</string>
+        can be seen by everyone on InsightsShare. Therefore consider your privacy before publishing your contactinformation!</string>
     //Images
     <string name="edit_user_profile_image_backarrow">go back</string>
     <string name="edit_user_profile_image_profilepicture">profilepicture</string>
