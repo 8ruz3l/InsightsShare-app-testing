@@ -110,15 +110,15 @@
     //labels
     <string name="edit_user_profile_title">Edit profile</string>
     <string name="edit_user_profile_label_username">Username</string>
-    <string name="edit_user_profile_label_firstname">Firstname</string>
-    <string name="edit_user_profile_label_lastname">Lastname</string>
+    <string name="edit_user_profile_label_firstname">First Name</string>
+    <string name="edit_user_profile_label_lastname">Last Name</string>
     <string name="edit_user_profile_label_bio">Biography</string>
     <string name="edit_user_profile_label_birthday">Birthday</string>
     <string name="edit_user_profile_label_age">Age</string>
     <string name="edit_user_profile_label_phonenumber">Phone Number</string>
     <string name="edit_user_profile_label_nationality">Nationality</string>
     <string name="edit_user_profile_privacyreminder">Please note, that the information below
-        can be seen by everyone on InsightsShare. Therefore consider your privacy before publishing your contactinformation!</string>
+        can be seen by everyone on InsightsShare. Therefore consider your privacy before publishing your contact information!</string>
     //Images
     <string name="edit_user_profile_image_backarrow">go back</string>
     <string name="edit_user_profile_image_profilepicture">profilepicture</string>

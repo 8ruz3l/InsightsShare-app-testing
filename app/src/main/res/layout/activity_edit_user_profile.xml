@@ -75,16 +75,22 @@
                 android:gravity="center"
                 android:text="@string/edit_user_profile_label_username" />
 
-            <EditText
-                android:id="@+id/inputUserName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="28dp"
-                android:layout_marginEnd="28dp"
-                android:text="@string/eventplanning5_creator"
-                android:inputType="text"
-                android:textColor="@color/black" />
+            <!-- (eventuell später wieder einkommentieren)
+                         erstmal raus, da Eventcreators nicht automatisch
+                         geändert werden, wenn sich der username ändert
+                        <EditText
+                            android:id="@+id/inputUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="28dp"
+                            android:layout_marginEnd="28dp"
+                            android:text="@string/eventplanning5_creator"
+                            android:inputType="text"
+                            android:textColor="@color/black" />
+
+                    Ende des Kommentars
+                    -->
 
             <TextView
                 android:id="@+id/labelBio"
