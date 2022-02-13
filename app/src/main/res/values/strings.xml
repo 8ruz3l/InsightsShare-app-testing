@@ -110,7 +110,7 @@
     <!-- Strings of Activity EditUserProfile-->
     //labels
     <string name="edit_user_profile_title">Edit profile</string>
-    <string name="reset_password">Reset Password</string>
+    <string name="reset_password">Change Password</string>
     <string name="edit_user_profile_label_username">Username</string>
     <string name="edit_user_profile_label_firstname">First Name</string>
     <string name="edit_user_profile_label_lastname">Last Name</string>
