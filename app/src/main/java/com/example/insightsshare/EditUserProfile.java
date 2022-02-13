@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,10 +28,13 @@ public class EditUserProfile extends AppCompatActivity {
     //variables to refer to the layouts xml-elements in this class
     EditText userName, bio;
     Button buttonSave;
+    Button resetButton;
 
     //variables for the connection with the DB:
     FirebaseDatabase rootNode;
     DatabaseReference reference, userReference;
+
+    FirebaseAuth fAuth;
 
     String userID;
 
@@ -42,6 +47,7 @@ public class EditUserProfile extends AppCompatActivity {
         userName= findViewById(R.id.OutputUserName);
         bio= findViewById(R.id.OutputBiography);
         buttonSave= findViewById(R.id.ButtonSave);
+        resetButton = findViewById(R.id.resPassword);
 
 
         // Set up the toolbar
@@ -51,6 +57,7 @@ public class EditUserProfile extends AppCompatActivity {
         backButton.setOnClickListener( view -> onBackPressed());
 
         //get the DB data of the current user
+        fAuth = FirebaseAuth.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
@@ -95,6 +102,21 @@ public class EditUserProfile extends AppCompatActivity {
 
             //display a little success-message, so that the user knows the data was saved
             Toast.makeText(EditUserProfile.this, R.string.toast_profile_changed, Toast.LENGTH_SHORT).show();
+        });
+
+        resetButton.setOnClickListener(view -> {
+            String eMail = user.getEmail();
+            fAuth.sendPasswordResetEmail(eMail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Toast.makeText(EditUserProfile.this, "Reset Email sent", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(EditUserProfile.this, "Failed to send Email", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
     }
 }

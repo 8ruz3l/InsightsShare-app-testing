@@ -53,6 +53,7 @@
     //labels
     <string name="label_password">Password</string>
     <string name="label_email">Email</string>
+    <string name="forgot_pw">Forgot password ?</string>
     //hints
     <string name="username_label_hint">Choose your Username.</string>
     <string name="email_label_hint">What is your email address?</string>
@@ -108,6 +109,7 @@
     <!-- Strings of Activity EditUserProfile-->
     //labels
     <string name="edit_user_profile_title">Edit profile</string>
+    <string name="reset_password">Reset Password</string>
 
     <!-- Toast message -->
     <string name="toast_event_created">Event successfully created</string>
