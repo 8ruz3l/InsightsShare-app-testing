@@ -33,8 +33,6 @@ public class EditUserProfile extends AppCompatActivity {
     ImageView backButton;
 
     //variables to refer to the layouts xml-elements in this class
-    EditText userName, bio;
-    Button buttonSave;
     Button resetButton;
 
     private EditText bio, firstname, lastname, phoneNumber, nationality;
