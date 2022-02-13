@@ -33,7 +33,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/ic_baseline_arrow_back_24"
-                app:tint="#9c1f4d" />
+                app:tint="#9c1f4d"
+                android:contentDescription="@string/edit_user_profile_image_backarrow" />
 
         </RelativeLayout>
 
@@ -60,39 +61,200 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="28dp"
+                android:contentDescription="@string/edit_user_profile_image_profilepicture"
                 android:src="@mipmap/ic_launcher"
                 tools:srcCompat="@tools:sample/avatars" />
 
-            <EditText
-                android:id="@+id/OutputUserName"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/labelUserName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:backgroundTint="@color/white"
-                android:text="@string/eventplanning5_creator"
-                android:textColor="@color/black" />
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_username" />
+
+            <!-- (eventuell später wieder einkommentieren)
+                         erstmal raus, da Eventcreators nicht automatisch
+                         geändert werden, wenn sich der username ändert
+                        <EditText
+                            android:id="@+id/inputUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="28dp"
+                            android:layout_marginEnd="28dp"
+                            android:text="@string/eventplanning5_creator"
+                            android:inputType="text"
+                            android:textColor="@color/black" />
+
+                    Ende des Kommentars
+                    -->
+
+            <TextView
+                android:id="@+id/labelBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_bio" />
 
             <EditText
-                android:id="@+id/OutputBiography"
+                android:id="@+id/inputBiography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
                 android:text="@string/settings6_biography" />
+
+            <TextView
+                android:id="@+id/privacyReminder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_privacyreminder"
+                android:textColor="@color/theme" />
+
+            <TextView
+                android:id="@+id/labelFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_firstname" />
+
+            <EditText
+                android:id="@+id/inputFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="textCapWords"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/labelLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_lastname" />
+
+            <EditText
+                android:id="@+id/inputLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="textCapWords"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/labelBirthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_birthday" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonBirthday"
+                    style="?android:spinnerStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginEnd="28dp"
+                    android:gravity="center"
+                    android:onClick="openDatePicker"
+                    android:outlineProvider="bounds"
+                    android:text="@string/eventplanning5_date"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/buttonDeleteBirthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginEnd="28dp"
+                    android:gravity="center"
+                    android:backgroundTint="@color/theme"
+                    android:text="Delete"
+                    android:onClick="deleteBirthday"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/labelPhonenumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_phonenumber" />
+
+            <EditText
+                android:id="@+id/inputPhonenumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="phone" />
+
+            <TextView
+                android:id="@+id/labelNationality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:gravity="center"
+                android:text="@string/edit_user_profile_label_nationality" />
+
+            <EditText
+                android:id="@+id/inputNationality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textCapWords" />
 
             <Button
                 android:id="@+id/ButtonSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="100dp"
                 android:backgroundTint="@color/theme"
                 android:text="@string/eventplanning5_button_save" />
+            //the margin bottom will help to see the savebutton
 
             <Button
                 android:id="@+id/resPassword"

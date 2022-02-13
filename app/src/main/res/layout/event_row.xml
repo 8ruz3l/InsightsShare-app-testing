@@ -112,7 +112,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/event_current_participant"
+                android:id="@+id/event_current_participants"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
