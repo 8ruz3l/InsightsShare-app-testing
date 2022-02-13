@@ -59,6 +59,8 @@ public class VerificActivity extends AppCompatActivity {
                         UserClass userInfo = new UserClass(userID, username, email, bio, firstname, lastname, birthday, phonenumber, nationality );
 
                         reference.child(fAuth.getCurrentUser().getUid()).setValue(userInfo);
+
+                        finish();
                     } else {
                         Toast.makeText(VerificActivity.this, "Email not verified yet!", Toast.LENGTH_SHORT).show();
                     }
