@@ -14,6 +14,7 @@
     <string name="title_home">Home</string>
     <string name="title_create_event">Create Event</string>
     <string name="title_my_event">My Event</string>
+    <string name="title_profile">My Profile</string>
 
     <!-- Event row -->
     <string name="event_creator">created by</string>
@@ -94,12 +95,13 @@
     <string name="eventplanning5_creator">**Creator**</string>
     //TODO: globalVariable.toString()
 
-    <!-- Strings of Activity Settings-->
+    <!-- Strings of Activity Profile-->
     //label
     <string name="settings6_label_profil_edit">Edit profile</string>
+
+    <!-- Strings of Activity Setting-->
     <string name="settings6_label_language">Language</string>
     <string name="settings6_label_lightmode">Darkmode</string>
-    //button
 
     //biography from DB
     <string name="settings6_biography">**bio**</string>
@@ -134,6 +136,15 @@
     <string name="toast_profile_changed">Profile successfully updated</string>
     <string name="toast_write_username">Please choose a fitting username.</string>
     <string name="toast_write_maxPraticipants">Please enter the maximal number of participants.</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
 </resources>

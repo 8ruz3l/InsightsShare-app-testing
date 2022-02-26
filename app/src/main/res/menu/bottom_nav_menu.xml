@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_baseline_event_24"
         android:title="@string/title_my_event" />
 
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_baseline_outline_account_circle_24"
+        android:title="@string/title_profile" />
+
 </menu>

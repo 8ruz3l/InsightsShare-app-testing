@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SettingsActivity6 extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
     // Toolbar elements
     ImageView backButton;
 
@@ -40,7 +40,7 @@ public class SettingsActivity6 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings6);
+        setContentView(R.layout.activity_profile);
 
         // Set up the toolbar
         setSupportActionBar(findViewById(R.id.toolbar));
@@ -149,15 +149,10 @@ public class SettingsActivity6 extends AppCompatActivity {
         });
 
     }
+
     // Methode to navigate to screen EditUserProfile
     private void openProfile() {
         Intent intent= new Intent(this, EditUserProfile.class);
         startActivity(intent);
-    }
-
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        finish();
     }
 }
