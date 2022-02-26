@@ -254,16 +254,6 @@
                 android:text="@string/eventplanning5_button_save" />
             //the margin bottom will help to see the savebutton
 
-            <Button
-                android:id="@+id/resPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="100dp"
-                android:backgroundTint="@color/theme"
-                android:text="@string/reset_password" />
-
         </LinearLayout>
 
     </ScrollView>

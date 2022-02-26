@@ -103,6 +103,16 @@
                 android:onClick="logout"
                 android:text="@string/settings6_button_sign_out" />
 
+            <Button
+                android:id="@+id/resPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="100dp"
+                android:backgroundTint="@color/theme"
+                android:text="@string/reset_password" />
+
         </LinearLayout>
 
     </ScrollView>

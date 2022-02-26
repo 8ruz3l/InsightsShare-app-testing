@@ -32,9 +32,6 @@ public class EditUserProfile extends AppCompatActivity {
     //Toolbar elements
     ImageView backButton;
 
-    //variables to refer to the layouts xml-elements in this class
-    Button resetButton;
-
     private EditText bio, firstname, lastname, phoneNumber, nationality;
     //private EditText userName; eventuell später einkommentieren und outputUsername rausnehmen
     private TextView outputUsername;
@@ -70,7 +67,6 @@ public class EditUserProfile extends AppCompatActivity {
         phoneNumber=findViewById(R.id.inputPhonenumber);
         nationality=findViewById(R.id.inputNationality);
         buttonSave= findViewById(R.id.ButtonSave);
-        resetButton = findViewById(R.id.resPassword);
         birthday =findViewById(R.id.buttonBirthday);
         buttonDeleteBirthday=findViewById(R.id.buttonDeleteBirthday);
 
@@ -151,21 +147,6 @@ public class EditUserProfile extends AppCompatActivity {
                 Toast.makeText(EditUserProfile.this, R.string.toast_profile_changed, Toast.LENGTH_SHORT).show();
         });
 
-
-        resetButton.setOnClickListener(view -> {
-            String eMail = user.getEmail();
-            fAuth.sendPasswordResetEmail(eMail).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    Toast.makeText(EditUserProfile.this, "Reset Email sent", Toast.LENGTH_SHORT).show();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(EditUserProfile.this, "Failed to send Email", Toast.LENGTH_SHORT).show();
-                }
-            });
-        });
         buttonDeleteBirthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
