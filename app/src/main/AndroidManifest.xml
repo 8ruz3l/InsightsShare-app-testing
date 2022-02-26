@@ -12,6 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InsightsShare">
         <activity
+            android:name=".SettingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/Theme.InsightsShare.NoActionBar" />
+        <activity
             android:name=".EditUserProfile"
             android:exported="true" />
         <activity
@@ -51,9 +59,6 @@
             android:exported="true"
             android:label="@string/title_activity_eventplanning5"
             android:theme="@style/Theme.InsightsShare.NoActionBar" />
-        <activity
-            android:name=".SettingsActivity6"
-            android:exported="true" />
     </application>
 
 </manifest>

@@ -23,4 +23,10 @@
         android:name="com.example.insightsshare.EventplanningActivity5"
         android:label="activity_eventplanning5"
         tools:layout="@layout/activity_eventplanning5" />
+
+    <activity
+        android:id="@+id/navigation_profile"
+        android:name="com.example.insightsshare.ProfileActivity"
+        android:label="activity_profile"
+        tools:layout="@layout/activity_profile" />
 </navigation>

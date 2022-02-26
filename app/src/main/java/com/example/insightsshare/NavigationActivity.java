@@ -13,6 +13,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 public class NavigationActivity extends AppCompatActivity {
+
+    // Toolbar elements
     ImageView profilePic;
 
     @Override
@@ -27,7 +29,7 @@ public class NavigationActivity extends AppCompatActivity {
         profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(NavigationActivity.this, SettingsActivity6.class);
+                Intent i = new Intent(NavigationActivity.this, SettingActivity.class);
                 startActivity(i);
             }
         });
