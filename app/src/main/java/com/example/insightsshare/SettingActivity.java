@@ -71,7 +71,7 @@ public class SettingActivity extends AppCompatActivity {
 
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
+        finishAffinity();
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        finish();
     }
 }
