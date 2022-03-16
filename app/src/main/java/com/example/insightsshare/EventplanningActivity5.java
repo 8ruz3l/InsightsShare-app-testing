@@ -147,8 +147,12 @@ public class EventplanningActivity5 extends AppCompatActivity {
         ButtonSave.setOnClickListener(view -> {
 
             if(maxParticipants.getEditableText().toString().isEmpty()){
-                Toast.makeText(EventplanningActivity5.this, R.string.toast_write_maxPraticipants, Toast.LENGTH_SHORT).show();
-             } else {
+                Toast.makeText(EventplanningActivity5.this, R.string.toast_write_maxParticipants, Toast.LENGTH_SHORT).show();
+             } else if(Integer.parseInt(maxParticipants.getEditableText().toString()) > 99) {
+                Toast.makeText(EventplanningActivity5.this, R.string.toast_maxParticipants_limit, Toast.LENGTH_SHORT).show();
+            } else if(eventName.getEditableText().toString().isEmpty()) {
+                Toast.makeText(EventplanningActivity5.this, R.string.toast_write_eventName, Toast.LENGTH_SHORT).show();
+            } else {
 
               rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
               reference = rootNode.getReference().child("Event");

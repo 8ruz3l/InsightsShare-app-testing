@@ -48,7 +48,7 @@
 
     <!-- Strings of Activity main-->
     <string name="main_title">Sign-in</string>
-    <string name="main_no_account">Don\'t you have an account?</string>
+    <string name="main_no_account">Don\'t have an account?</string>
     <string name="main_password_label_hint">What is your password?</string>
 
     <!-- Strings of Activity main and Registr-->
@@ -65,7 +65,7 @@
 
     <!-- Strings of Activity Registr-->
     <string name="registr_title">Sign-up</string>
-    <string name="registr_already_account">Do you have already an account?</string>
+    <string name="registr_already_account">Do you already have an account?</string>
     <string name="registr_label_username">Username</string>
     <string name="registr_datenSchutzErklaerung">I confirm the privacy policy agreement of InsightShare.</string>
     <string name="registr_button_continue">Continue</string>
@@ -135,7 +135,9 @@
     <string name="toast_event_leave">You left the event</string>
     <string name="toast_profile_changed">Profile successfully updated</string>
     <string name="toast_write_username">Please choose a fitting username.</string>
-    <string name="toast_write_maxPraticipants">Please enter the maximal number of participants.</string>
+    <string name="toast_write_maxParticipants">Please enter the maximal number of participants.</string>
+    <string name="toast_maxParticipants_limit">Maximum allowed number of participants : 99</string>
+    <string name="toast_write_eventName">Please enter the name of the event.</string>
     <string name="title_activity_profile">ProfileActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

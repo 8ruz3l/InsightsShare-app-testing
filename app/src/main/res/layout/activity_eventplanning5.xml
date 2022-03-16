@@ -112,6 +112,7 @@
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="28dp"
                 android:background="@drawable/stroke_box"
+                android:maxLength="500"
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="@string/eventplanning5_hint_description"
