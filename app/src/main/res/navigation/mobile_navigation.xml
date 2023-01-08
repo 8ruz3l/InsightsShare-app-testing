@@ -14,13 +14,13 @@
 
     <fragment
         android:id="@+id/navigation_events_calendar"
-        android:name="com.example.insightsshare.MyEventFragment"
+        android:name="com.example.insightsshare.eventmanagement.MyEventFragment"
         android:label="@string/title_my_event"
         tools:layout="@layout/fragment_my_event" />
 
     <activity
         android:id="@+id/navigation_event_creation"
-        android:name="com.example.insightsshare.EventplanningActivity5"
+        android:name="com.example.insightsshare.eventmanagement.EventplanningActivity5"
         android:label="activity_eventplanning5"
         tools:layout="@layout/activity_eventplanning5" />
 

@@ -1,4 +1,4 @@
-package com.example.insightsshare;
+package com.example.insightsshare.eventmanagement;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.insightsshare.NavigationActivity;
+import com.example.insightsshare.R;
+import com.example.insightsshare.UserClass;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
