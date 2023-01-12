@@ -1,4 +1,4 @@
-package com.example.insightsshare;
+package com.example.insightsshare.eventmanagement;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.insightsshare.R;
+import com.example.insightsshare.eventmanagement.EventItem;
+import com.example.insightsshare.eventmanagement.EventListAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

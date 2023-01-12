@@ -1,4 +1,4 @@
-package com.example.insightsshare;
+package com.example.insightsshare.eventmanagement;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.insightsshare.R;
+import com.example.insightsshare.UserClass;
 
 import java.util.ArrayList;
 

@@ -45,7 +45,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_container"
         android:layout_below="@id/appbar"
-        tools:context=".EventDetailsActivity">
+        tools:context=".eventmanagement.EventDetailsActivity">
 
         <LinearLayout
             android:id="@+id/linearLayout5"

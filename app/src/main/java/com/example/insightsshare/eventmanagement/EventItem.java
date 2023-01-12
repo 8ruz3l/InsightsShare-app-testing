@@ -1,4 +1,4 @@
-package com.example.insightsshare;
+package com.example.insightsshare.eventmanagement;
 
 public class EventItem {
 
