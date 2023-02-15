@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Button loginButton;
     FirebaseAuth fAuth;
     TextView forgotPasswordLabel;
+    UserAuthenticationService userAuthService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,50 +40,32 @@ public class MainActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
 
+        userAuthService = new UserAuthenticationService(fAuth);
+
         if(fAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(), NavigationActivity.class ));
             finish();
         }
 
-        loginButton = (Button) findViewById(R.id.anmeldeButton);
+        loginButton = findViewById(R.id.anmeldeButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = loginEmail.getText().toString().trim();
                 String password = loginPassword.getText().toString().trim();
 
-                if(TextUtils.isEmpty(email)){
-                    loginEmail.setError("Email is required");
-                    return;
-                }
-                if(TextUtils.isEmpty(password)){
-                    loginPassword.setError("Password is required");
+                String validationError = userAuthService.validateSignInInformation(email, password);
+
+                if (validationError != null) {
+                    displayError(validationError);
                     return;
                 }
 
-               //prüfen ob Email verifiziert fehlt noch
-               // if (fAuth.getCurrentUser().isEmailVerified()) {
-                    fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
-
-                                finish();
-                            } else {
-                                Toast.makeText(MainActivity.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                //}
-             /* else{
-                    Toast.makeText(MainActivity.this, "Email not verified yet.", Toast.LENGTH_SHORT).show();
-                }*/
+                signIn(email, password);
             }
         });
 
-        Button toRegButton = (Button) findViewById(R.id.backToAnmButton);
+        Button toRegButton = findViewById(R.id.backToAnmButton);
         toRegButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,5 +117,29 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void signIn(String email, String password) {
+        userAuthService.signIn(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(MainActivity.this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void displayError(String validationError) {
+        if (validationError.equals("Email is required")){
+            loginEmail.setError("Email is required");
+        }
+        if(validationError.equals("Password is required")){
+            loginPassword.setError("Password is required");
+        }
     }
 }
