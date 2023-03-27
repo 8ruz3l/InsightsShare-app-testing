@@ -182,7 +182,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         generateParticipantsList();
 
         editButton.setOnClickListener(view -> {
-            Intent i = new Intent(EventDetailsActivity.this, EventplanningActivity5.class);
+            Intent i = new Intent(EventDetailsActivity.this, EventplanningActivity.class);
             Bundle extras = new Bundle();
             extras.putBoolean("updateExistingEvent", true);
             extras.putString("existingEventID", eventId);

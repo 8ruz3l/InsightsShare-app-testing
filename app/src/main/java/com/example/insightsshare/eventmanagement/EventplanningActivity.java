@@ -38,7 +38,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 
-public class EventplanningActivity5 extends AppCompatActivity {
+public class EventplanningActivity extends AppCompatActivity {
     //Toolbar elements
     ImageView backButton;
 
@@ -152,11 +152,11 @@ public class EventplanningActivity5 extends AppCompatActivity {
         ButtonSave.setOnClickListener(view -> {
 
             if(maxParticipants.getEditableText().toString().isEmpty()){
-                Toast.makeText(EventplanningActivity5.this, R.string.toast_write_maxParticipants, Toast.LENGTH_SHORT).show();
+                Toast.makeText(EventplanningActivity.this, R.string.toast_write_maxParticipants, Toast.LENGTH_SHORT).show();
              } else if(Integer.parseInt(maxParticipants.getEditableText().toString()) > 99) {
-                Toast.makeText(EventplanningActivity5.this, R.string.toast_maxParticipants_limit, Toast.LENGTH_SHORT).show();
+                Toast.makeText(EventplanningActivity.this, R.string.toast_maxParticipants_limit, Toast.LENGTH_SHORT).show();
             } else if(eventName.getEditableText().toString().isEmpty()) {
-                Toast.makeText(EventplanningActivity5.this, R.string.toast_write_eventName, Toast.LENGTH_SHORT).show();
+                Toast.makeText(EventplanningActivity.this, R.string.toast_write_eventName, Toast.LENGTH_SHORT).show();
             } else {
 
               rootNode = FirebaseDatabase.getInstance("https://insightsshare-1e407-default-rtdb.europe-west1.firebasedatabase.app");
@@ -218,9 +218,9 @@ public class EventplanningActivity5 extends AppCompatActivity {
 
                 //display a little success-message, so that the user knows the data was saved
                 if (updateExistingEvent) {
-                    Toast.makeText(EventplanningActivity5.this, R.string.toast_event_updated, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EventplanningActivity.this, R.string.toast_event_updated, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(EventplanningActivity5.this, R.string.toast_event_created, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EventplanningActivity.this, R.string.toast_event_created, Toast.LENGTH_SHORT).show();
                 }
             }
         });     //end of setOnClickListener for the buttonSave5

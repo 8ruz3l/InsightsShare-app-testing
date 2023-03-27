@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     EditText loginEmail, loginPassword;
     Button loginButton;
-    FirebaseAuth fAuth;
     TextView forgotPasswordLabel;
     UserAuthenticationService userAuthService;
 
@@ -38,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
         loginEmail = findViewById(R.id.inputEmail2);
         loginPassword = findViewById(R.id.inputPassword2);
 
-        fAuth = FirebaseAuth.getInstance();
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
         userAuthService = new UserAuthenticationService(fAuth);
 
-        if(fAuth.getCurrentUser() != null){
+        if(userAuthService.getUser() != null){
             startActivity(new Intent(getApplicationContext(), NavigationActivity.class ));
             finish();
         }

@@ -20,7 +20,7 @@
 
     <activity
         android:id="@+id/navigation_event_creation"
-        android:name="com.example.insightsshare.eventmanagement.EventplanningActivity5"
+        android:name="com.example.insightsshare.eventmanagement.EventplanningActivity"
         android:label="activity_eventplanning5"
         tools:layout="@layout/activity_eventplanning5" />
 

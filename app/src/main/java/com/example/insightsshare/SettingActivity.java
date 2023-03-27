@@ -38,7 +38,6 @@ public class SettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
 
         // Set up the toolbar
-        setSupportActionBar(findViewById(R.id.toolbar));
         //Toolbar back button
         backButton = (ImageView) findViewById(R.id.backButton);
         backButton.setOnClickListener( view -> onBackPressed());

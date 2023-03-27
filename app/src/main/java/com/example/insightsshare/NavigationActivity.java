@@ -23,7 +23,6 @@ public class NavigationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_navigation);
 
         // Set up the toolbar
-        setSupportActionBar(findViewById(R.id.toolbar));
         // Profile picture in toolbar
         profilePic = (ImageView) findViewById(R.id.profile);
         profilePic.setOnClickListener(new View.OnClickListener() {
